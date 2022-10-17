@@ -1,0 +1,31 @@
+﻿@model NotUseAuto.Models.Category
+
+
+<h1 style="color: red;">Are you sure to delete this category</h1>
+<div>
+    <br />
+</div>
+
+
+<h3>Category Details</h3>
+<div>
+    <br />
+</div>
+
+<form asp-controller="Category" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" class="form-control" />
+    <h4>Name: @Model.Name</h4>
+    <h4>Description: @Model.Description</h4>
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div>
+    <div>
+        <br>
+    </div>
+</form>
+
+<a asp-controller="Products" asp-action="Index" class="btn btn-dark">Cancel</a>
+
+
+
+
