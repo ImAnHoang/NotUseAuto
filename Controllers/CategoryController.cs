@@ -25,11 +25,11 @@ namespace NotUseAuto.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Category category)
+        public IActionResult Create(WaitCategory category)
         {
             if (ModelState.IsValid)
             {
-                context.Category.Add(category);
+                context.WaitCategory.Add(category);
                 context.SaveChanges();
                 return Redirect("/Category");
             }

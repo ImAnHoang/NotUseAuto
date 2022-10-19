@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NotUseAuto.Migrations
 {
-    public partial class namesss : Migration
+    public partial class huygch22 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,6 +58,20 @@ namespace NotUseAuto.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WaitCategory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaitCategory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,7 +190,8 @@ namespace NotUseAuto.Migrations
                     Price = table.Column<decimal>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    WaitCategoryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -187,6 +202,12 @@ namespace NotUseAuto.Migrations
                         principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Product_WaitCategory_WaitCategoryId",
+                        column: x => x.WaitCategoryId,
+                        principalTable: "WaitCategory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -194,8 +215,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "ada6e941-ed83-4310-871b-bc2f81ee3936", "Administrator", "Administrator" },
-                    { "B", "2616ba07-9338-421d-bd59-d783f801d8a9", "Customer", "Customer" }
+                    { "A", "057f6bb8-bb1c-409a-ab1d-72c79247a269", "Administrator", "Administrator" },
+                    { "B", "56e8c0a1-8ea6-40c9-88b1-e2cd8bfbb449", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -203,8 +224,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "095b72c2-3b03-4a47-844d-fc279407d9cb", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEKwoAF44h6x+KU+3Ek3we3gVOe4v4lNDE4sShiDene+YZJo2FXm9Nf3SkIu3fRtndA==", null, false, "9b67c2d5-23cf-4f0a-bc72-fdf28354e6e1", false, "admin@fpt.com" },
-                    { "2", 0, "e6836c09-79c1-451a-841b-39001095dc1a", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEBFgDuzZhidntYaVhavb95ry0XSzwAE6m2CNmwZonwMfdVJg/QZ6khH/BanZ1eZw5g==", null, false, "45313874-abc0-4292-b9f0-8b72b22b4a97", false, "customer@fpt.com" }
+                    { "1", 0, "ae2c7429-18bd-4b80-acc1-1164931fd8e5", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEBIMEQKVW5LGTjCBqCaaZW9vvtC3rlllSBIpPgbgvHQijywaalbQWLHOX9zG7wgrqg==", null, false, "085cbf29-5838-42cd-b0a8-d252f383e79c", false, "admin@fpt.com" },
+                    { "2", 0, "282f1839-3141-4163-bab1-fdb50da48a8a", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEBGlBFVJP+Dp/hx9eTOs873tVVYNoS4VueOd8bg0arOD5teI2Y0+lVTOihDvjgpQKg==", null, false, "576b7c9c-6e8b-4273-a6e2-b1bc86e0ed2a", false, "customer@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -228,16 +249,16 @@ namespace NotUseAuto.Migrations
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price", "Quantity" },
+                columns: new[] { "Id", "CategoryId", "Description", "Name", "Price", "Quantity", "WaitCategoryId" },
                 values: new object[,]
                 {
-                    { 1, 1, "Iphone 11", "Iphone 11", 1000m, 10 },
-                    { 3, 1, "Iphone 13", "Iphone 13", 3000m, 30 },
-                    { 5, 1, "Iphone 15", "Iphone 15", 5000m, 50 },
-                    { 2, 2, "ROG STRIX", "ROG", 2000m, 20 },
-                    { 7, 2, "Scar 17", "Scar 17", 7000m, 70 },
-                    { 4, 3, "SamSungNote", "SamSungNote", 4000m, 40 },
-                    { 6, 3, "SAMSUNGTABLET", "SAMSUNGTABLET", 6000m, 60 }
+                    { 1, 1, "Iphone 11", "Iphone 11", 1000m, 10, null },
+                    { 3, 1, "Iphone 13", "Iphone 13", 3000m, 30, null },
+                    { 5, 1, "Iphone 15", "Iphone 15", 5000m, 50, null },
+                    { 2, 2, "ROG STRIX", "ROG", 2000m, 20, null },
+                    { 7, 2, "Scar 17", "Scar 17", 7000m, 70, null },
+                    { 4, 3, "SamSungNote", "SamSungNote", 4000m, 40, null },
+                    { 6, 3, "SAMSUNGTABLET", "SAMSUNGTABLET", 6000m, 60, null }
                 });
 
             migrationBuilder.CreateIndex(
@@ -283,6 +304,11 @@ namespace NotUseAuto.Migrations
                 name: "IX_Product_CategoryId",
                 table: "Product",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_WaitCategoryId",
+                table: "Product",
+                column: "WaitCategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -313,6 +339,9 @@ namespace NotUseAuto.Migrations
 
             migrationBuilder.DropTable(
                 name: "Category");
+
+            migrationBuilder.DropTable(
+                name: "WaitCategory");
         }
     }
 }
