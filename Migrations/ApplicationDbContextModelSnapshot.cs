@@ -49,14 +49,14 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "8ada4a3d-5fb8-463b-aba2-7cb6d05972c4",
+                            ConcurrencyStamp = "825284a4-6f70-4c5b-b6dc-3047b4d3b6b1",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "21ed4abf-3300-4c84-9558-fa65f1e7bc51",
+                            ConcurrencyStamp = "c68a683d-ea7c-4de1-ac5a-f5f4a4c8c1cb",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         });
@@ -155,14 +155,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "def619e3-7a58-4ad4-9c96-21d4cbf3519d",
+                            ConcurrencyStamp = "56121106-c89a-4eaf-85f4-b3dff653cdc7",
                             Email = "admin@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDPHz8V1+lDW9TJF46xmKfiY8Q4CWFuPH/ZxkoDrdAL/BC614yzK4YgWWL1foTv3hg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJjb8KLEwr6DvrxyN4/tmHH9FA7KfZ7qY8zplOaSpJjgaEAk7clfOw7+E6iLxjS74A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0551d6ea-7530-4e4c-8d6a-a95692447f97",
+                            SecurityStamp = "7a62ee53-4d48-4d80-b489-add6a7059069",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -170,14 +170,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1a1c5aaf-219f-439e-9e14-d5b569f94cd3",
+                            ConcurrencyStamp = "fdf46a05-6710-41b9-9729-b02a9540a3b1",
                             Email = "customer@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFWxgbx2biOUOBnHe1asIWQtV93tGVzcrdvJ0BHgBKwSmDoKpPv/r6+UiC5Ar6Ud4w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDhXuU2A7wf/L2fmXNPii0b+1G2h+dlFU2Cm9D5Z9vqkKd4nBIqwWnTRgo9U5AQr/w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a36e154d-2341-4895-8f21-b62b65352e29",
+                            SecurityStamp = "dbf2e1ff-7b94-4b01-bb4b-00b2a80e288b",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         });
@@ -302,20 +302,38 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Mobile Phone",
-                            Name = "Mobile"
+                            Description = "Action",
+                            Name = "Action"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Laptop",
-                            Name = "Laptop"
+                            Description = "Anime",
+                            Name = "Anime"
                         },
                         new
                         {
                             Id = 3,
-                            Description = "Tablet",
-                            Name = "Tablet"
+                            Description = "Fantasy",
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Adventure",
+                            Name = "Adventure"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Magic",
+                            Name = "Magic"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Drama",
+                            Name = "Drama"
                         });
                 });
 
@@ -330,6 +348,10 @@ namespace NotUseAuto.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -360,8 +382,9 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            Description = "Iphone 11",
-                            Name = "Iphone 11",
+                            Description = "The series focuses on Asta, a young orphan who is left to be raised in an orphanage alongside his fellow orphan, Yuno. While everyone is born with the ability to utilize mana in the form of magical power, Asta, with no magic however, instead focuses on physical strength.",
+                            Image = "https://m.media-amazon.com/images/M/MV5BN2FlYjYxMTMtZGQzYy00OWU2LTkyYWMtNWJhODhmZmM0N2FhXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg",
+                            Name = "Black clover",
                             Price = 1000m,
                             Quantity = 10
                         },
@@ -369,8 +392,9 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 2,
                             CategoryId = 2,
-                            Description = "ROG STRIX",
-                            Name = "ROG",
+                            Description = "One Piece is the story of Monkey D. Luffy, a young man who has a single dream: To find the legendary treasure known as the One Piece and become the King of the Pirates. Alongside a crew of trusted friends, Luffy sails the dangerous seas of the Grand Line to find Laugh Tale, the hidden island containing the One Piece.",
+                            Image = "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2021/09/one-piece-live-action-netlfix-2-696x1044.jpg?fit=700%2C20000&quality=95&ssl=1",
+                            Name = "One Piece",
                             Price = 2000m,
                             Quantity = 20
                         },
@@ -378,8 +402,9 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 3,
                             CategoryId = 1,
-                            Description = "Iphone 13",
-                            Name = "Iphone 13",
+                            Description = "Demon Slayer: Kimetsu no Yaiba (鬼滅の刃, Kimetsu no Yaiba, \"Blade of Demon Destruction\") is a Japanese manga series written and illustrated by Koyoharu Gotouge. It follows teenage Tanjiro Kamado, who strives to become a demon slayer after his family was slaughtered and his younger sister, Nezuko, turned into a demon.",
+                            Image = "https://cdnsg.kilala.vn/data/upload/article/5840/Kimetsu%20no%20Yaiba%20Mugen%20Ressha-hen%20(8).jpg",
+                            Name = "Kimetsu No Yaiba",
                             Price = 3000m,
                             Quantity = 30
                         },
@@ -387,8 +412,9 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 4,
                             CategoryId = 3,
-                            Description = "SamSungNote",
-                            Name = "SamSungNote",
+                            Description = "FAIRY TAIL is an anime series about a teen named Lucy (voiced by Cherami Leigh) who runs away with her new friend, Natsu (Todd Haberkorn), to join the well-known wizards guild, Fairy Tail.",
+                            Image = "https://img1.ak.crunchyroll.com/i/spire2/f4ca1a545a471a9ce6e43eef8e8d72541539734102_main.jpg",
+                            Name = "Fairy tail",
                             Price = 4000m,
                             Quantity = 40
                         },
@@ -396,8 +422,9 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            Description = "Iphone 15",
-                            Name = "Iphone 15",
+                            Description = "One-Punch Man (Japanese: ワンパンマン, Hepburn: Wanpanman) is a Japanese superhero manga series created by One. It tells the story of Saitama, a superhero who, because he can defeat any opponent with a single punch, grows bored from a lack of challenge. One wrote the original webcomic manga version in early 2009.",
+                            Image = "https://static.wikia.nocookie.net/onepunchman/images/2/27/Saitama.png/revision/latest?cb=20210530114318&path-prefix=vi",
+                            Name = "Onepuch man",
                             Price = 5000m,
                             Quantity = 50
                         },
@@ -405,17 +432,149 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 6,
                             CategoryId = 3,
-                            Description = "SAMSUNGTABLET",
-                            Name = "SAMSUNGTABLET",
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
                             Price = 6000m,
                             Quantity = 60
                         },
                         new
                         {
                             Id = 7,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CategoryId = 3,
+                            Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                            Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg",
+                            Name = "Naruto",
+                            Price = 6000m,
+                            Quantity = 60
+                        },
+                        new
+                        {
+                            Id = 20,
                             CategoryId = 2,
-                            Description = "Scar 17",
-                            Name = "Scar 17",
+                            Description = "The series focuses on a middle school student Izuku Midoriya, who has no superpowers. Will he be able to become a hero and somehow to contribute to the peace and stability in the world, where the weak is the minority that needs to be defended.",
+                            Image = "https://m.media-amazon.com/images/M/MV5BNzBlMDU5NzgtYTBiMC00ODYwLTg2YzItNTczYjY1OTRmNGFhXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg",
+                            Name = "Hero academia",
                             Price = 7000m,
                             Quantity = 70
                         });

@@ -26,22 +26,25 @@
         <div class="left-side-menu">
 
             <!-- LOGO -->
-            <a class="logo text-center logo-light">
-                <span class="logo-lg">
-                    <img src="assets/images/logo.png" alt="" height="16">
-                </span>
-                <span class="logo-sm">
-                    <img src="assets/images/logo_sm.png" alt="" height="16">
-                </span>
+            <a asp-controller="Products" asp-action="Index" class="logo text-center logo-light">
+                <a class="logo text-center logo-light">
+                   <span class="logo-lg">
+                      <img src="~/images/logo-dark.png" alt="" height="16">
+                   </span>
+                    <span class="logo-sm">
+                       <img src="assets/images/logo_sm.png" alt="" height="16">
+                    </span>
+                </a>
             </a>
+            
 
             <!-- LOGO -->
-            <a href="index.html" class="logo text-center logo-dark">
+            <a asp-controller="Products" asp-action="Index" class="logo text-center logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="" height="16">
+                    <img src="~/images/logo-dark.png" alt="" height="16">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo_sm_dark.png" alt="" height="16">
+                    <img src="~/images/logo_sm_dark.png" alt="" height="16">
                 </span>
             </a>
 
@@ -55,32 +58,19 @@
                     <li class="side-nav-item">
                         <a asp-controller="Products" asp-action="Index" class="side-nav-link">
                             <i class="uil-home-alt"></i>
-                            <span> Dashboards </span>
+                            <span> products </span>
                         </a>
                     </li>
 
                     <li class="side-nav-title side-nav-item">Apps</li>
 
                     <li class="side-nav-item">
-                        <a href="apps-calendar.html" class="side-nav-link">
+                        <a asp-controller="Category" asp-action="Index" class="side-nav-link">
                             <i class="uil-calender"></i>
-                            <span> Calendar </span>
+                            <span> Category </span>
                         </a>
                     </li>
 
-                    <li class="side-nav-item">
-                        <a href="apps-chat.html" class="side-nav-link">
-                            <i class="uil-comments-alt"></i>
-                            <span> Chat </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="apps-social-feed.html" class="side-nav-link">
-                            <i class="uil-rss"></i>
-                            <span> Social Feed </span>
-                        </a>
-                    </li>
                 </ul>
                 <!-- End Sidebar -->
 
