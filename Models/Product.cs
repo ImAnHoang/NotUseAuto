@@ -23,6 +23,9 @@ namespace NotUseAuto.Models
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Please select one category hihi")]
+        
+        public string Image { get; set; }
+        [Required]
         public int CategoryId { get; set; }
 
 

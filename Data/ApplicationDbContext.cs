@@ -41,85 +41,241 @@ namespace NotUseAuto.Data
                 new Category
                 {
                     Id = 1,
-                    Name = "Mobile",
-                    Description = "Mobile Phone"
+                    Name = "Action",
+                    Description = "Action"
                 },
                 new Category
                 {
                     Id = 2,
-                    Name = "Laptop",
-                    Description = "Laptop"
+                    Name = "Anime",
+                    Description = "Anime"
                 },
                 new Category
                 {
                     Id = 3,
-                    Name = "Tablet",
-                    Description = "Tablet"
+                    Name = "Fantasy",
+                    Description = "Fantasy"
+                },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Adventure",
+                    Description = "Adventure"
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Magic",
+                    Description = "Magic"
+                },
+                new Category
+                {
+                    Id = 6,
+                    Name = "Drama",
+                    Description = "Drama"
                 }
                 );
             builder.Entity<Product>().HasData(
                 new Product
                 {
                     Id = 1,
-                    Name = "Iphone 11",
+                    Name = "Black clover",
                     Price = 1000,
                     Quantity = 10,
-                    Description = "Iphone 11",
-                    CategoryId = 1
+                    Description = "The series focuses on Asta, a young orphan who is left to be raised in an orphanage alongside his fellow orphan, Yuno. While everyone is born with the ability to utilize mana in the form of magical power, Asta, with no magic however, instead focuses on physical strength.",
+                    CategoryId = 1,
+                    Image = "https://m.media-amazon.com/images/M/MV5BN2FlYjYxMTMtZGQzYy00OWU2LTkyYWMtNWJhODhmZmM0N2FhXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1000_.jpg"
                 },
                 new Product
                 {
                     Id = 2,
-                    Name = "ROG",
+                    Name = "One Piece",
                     Price = 2000,
                     Quantity = 20,
-                    Description = "ROG STRIX",
-                    CategoryId = 2
+                    Description = "One Piece is the story of Monkey D. Luffy, a young man who has a single dream: To find the legendary treasure known as the One Piece and become the King of the Pirates. Alongside a crew of trusted friends, Luffy sails the dangerous seas of the Grand Line to find Laugh Tale, the hidden island containing the One Piece.",
+                    CategoryId = 2,
+                    Image = "https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2021/09/one-piece-live-action-netlfix-2-696x1044.jpg?fit=700%2C20000&quality=95&ssl=1"
                 },
                 new Product
                 {
                     Id = 3,
-                    Name = "Iphone 13",
+                    Name = "Kimetsu No Yaiba",
                     Price = 3000,
                     Quantity = 30,
-                    Description = "Iphone 13",
-                    CategoryId = 1
+                    Description = "Demon Slayer: Kimetsu no Yaiba (鬼滅の刃, Kimetsu no Yaiba, \"Blade of Demon Destruction\") is a Japanese manga series written and illustrated by Koyoharu Gotouge. It follows teenage Tanjiro Kamado, who strives to become a demon slayer after his family was slaughtered and his younger sister, Nezuko, turned into a demon.",
+                    CategoryId = 1,
+                    Image = "https://cdnsg.kilala.vn/data/upload/article/5840/Kimetsu%20no%20Yaiba%20Mugen%20Ressha-hen%20(8).jpg"
                 },
                 new Product
                 {
                     Id = 4,
-                    Name = "SamSungNote",
+                    Name = "Fairy tail",
                     Price = 4000,
                     Quantity = 40,
-                    Description = "SamSungNote",
-                    CategoryId = 3
+                    Description = "FAIRY TAIL is an anime series about a teen named Lucy (voiced by Cherami Leigh) who runs away with her new friend, Natsu (Todd Haberkorn), to join the well-known wizards guild, Fairy Tail.",
+                    CategoryId = 3,
+                    Image = "https://img1.ak.crunchyroll.com/i/spire2/f4ca1a545a471a9ce6e43eef8e8d72541539734102_main.jpg"
                 },
                 new Product
                 {
                     Id = 5,
-                    Name = "Iphone 15",
+                    Name = "Onepuch man",
                     Price = 5000,
                     Quantity = 50,
-                    Description = "Iphone 15",
-                    CategoryId = 1
+                    Description = "One-Punch Man (Japanese: ワンパンマン, Hepburn: Wanpanman) is a Japanese superhero manga series created by One. It tells the story of Saitama, a superhero who, because he can defeat any opponent with a single punch, grows bored from a lack of challenge. One wrote the original webcomic manga version in early 2009.",
+                    CategoryId = 1,
+                    Image = "https://static.wikia.nocookie.net/onepunchman/images/2/27/Saitama.png/revision/latest?cb=20210530114318&path-prefix=vi"
                 },
                 new Product
                 {
                     Id = 6,
-                    Name = "SAMSUNGTABLET",
+                    Name = "Naruto",
                     Price = 6000,
                     Quantity = 60,
-                    Description = "SAMSUNGTABLET",
-                    CategoryId = 3
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
                 },
                 new Product
                 {
                     Id = 7,
-                    Name = "Scar 17",
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 8,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 9,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 10,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 11,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 12,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 13,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 14,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 15,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 16,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 17,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                {
+                    Id = 18,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+                new Product
+                 {
+                     Id = 19,
+                     Name = "Naruto",
+                     Price = 6000,
+                     Quantity = 60,
+                     Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                     CategoryId = 3,
+                     Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                },
+
+                new Product
+                {
+                    Id = 20,
+                    Name = "Hero academia",
                     Price = 7000,
                     Quantity = 70,
-                    Description = "Scar 17",
-                    CategoryId = 2
+                    Description = "The series focuses on a middle school student Izuku Midoriya, who has no superpowers. Will he be able to become a hero and somehow to contribute to the peace and stability in the world, where the weak is the minority that needs to be defended.",
+                    CategoryId = 2,
+                    Image = "https://m.media-amazon.com/images/M/MV5BNzBlMDU5NzgtYTBiMC00ODYwLTg2YzItNTczYjY1OTRmNGFhXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg"
                 });
         }
 
