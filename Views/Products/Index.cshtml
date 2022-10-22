@@ -10,66 +10,67 @@
     </a>
 </h1>
 
+                <div class="table-responsive">
+                    <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        
+                            <div class="col-sm-12">
+                                <table class="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline" id="products-datatable" role="grid" aria-describedby="products-datatable_info" style="width: 1551px;">
+                                    <thead class="thead-light">
+                                        <tr role="row">
+                                            <th class="all dt-checkboxes-cell dt-checkboxes-select-all sorting_disabled" style="width: 28.6px;" rowspan="1" colspan="1" data-col="0" aria-label="
 
 
+                                                                &amp;nbsp;
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                Price
-            </th>
-            <th>
-                Description
-            </th>
-            <th>
-                Quantity
-            </th>
-            <th>
-                Category
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
+                                                        "><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input dt-checkboxes"><label class="custom-control-label">&nbsp;</label></div></th>
+                                            <th class="all sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 430.8px;" aria-sort="ascending" aria-label="Product: activate to sort column descending">Product</th>
+                                            <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 180.8px;" aria-label="Category: activate to sort column ascending">Category</th>
+                                           
+                                            <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 94.8px;" aria-label="Price: activate to sort column ascending">Price</th>
+                                            <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 128.8px;" aria-label="Quantity: activate to sort column ascending">Quantity</th>
+                                            <th class="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 103.8px;" aria-label="Status: activate to sort column ascending">Status</th>
+                                            <th style="width: 85.6px;" class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                            <tr role="row" class="odd">
+                                                <td class="dt-checkboxes-cell" tabindex="0"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input dt-checkboxes"><label class="custom-control-label">&nbsp;</label></div></td>
+                                                <td class="sorting_1">
+                                                    <img src="@item.Image" alt="contact-img" title="contact-img" class="rounded mr-3" height="48">
+                                                    <p class="m-0 d-inline-block align-middle font-16">
+                                                        <a href="apps-ecommerce-products-details.html" class="text-body">@item.Name</a>
+                                                        <br>
+                                                        <span class="text-warning mdi mdi-star"></span>
+                                                        <span class="text-warning mdi mdi-star"></span>
+                                                        <span class="text-warning mdi mdi-star"></span>
+                                                        <span class="text-warning mdi mdi-star"></span>
+                                                        <span class="text-warning mdi mdi-star"></span>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                @{
+                                                    for (int i = 0; i < ViewBag.Categories.Count; i++)
+                                                    {
+                                                        if (ViewBag.Categories[i].Id == item.CategoryId)
+                                                        {
+                                                            <text>@ViewBag.Categories[i].Name</text>
+                                                        }
+                                                    }
+                                                }
+                                                </td>
+                                               
+                                                <td style="">
+                                                    $@item.Price
+                                                </td>
 
-                <td>
-                    @item.Name
-                </td>
-                <td>
-                    @item.Price
-                </td>
-                <td>
-                    @item.Description
-                </td>
-                <td>
-                    @item.Quantity
-                </td>
-                <td>
-                    @{
-                        for (int i = 0; i < ViewBag.Categories.Count; i++)
-                        {
-                            if (ViewBag.Categories[i].Id == item.CategoryId)
-                            {
-                                <text>@ViewBag.Categories[i].Name</text>
-                            }
-                        }
-                    }
-                </td>
-                <td>
-                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary button">Details</a>
-                </td>
-
-                <td>
-                    <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark button">Edit</a>
-                </td>
-
+                                                <td style="">
+                                                    @item.Quantity
+                                                </td>
+                                                <td style="">
+                                                    <span class="badge badge-success">Active</span>
+                                                </td>
 
                 <td>
                     <a asp-controller="Products" asp-action="Confirm" asp-route-id="@item.Id" class="btn btn-danger button">Delete</a>

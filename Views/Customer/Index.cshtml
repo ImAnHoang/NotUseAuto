@@ -1,0 +1,59 @@
+﻿@model List<Product>
+@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    ViewData["Title"] = "Page Title";
+}
+
+<div class="posts row">
+    @foreach(var item in Model)
+    {
+        <div class="col-lg-2 col-md-3 col-sm-4">
+            <div class="card mb-3">
+                <a href="details.html"><img src="@item.Image" class="card-img-top" alt=""></a>
+                <div class="over text-center">
+                    <div class="head text-left">
+                        <h6>@item.Name</h6>
+                    </div>
+                    <div class="about-list">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Category:</th>
+                                    <td>
+                                        @{
+                                            for (int i = 0; i < ViewBag.Categories.Count; i++)
+                                            {
+                                                if (ViewBag.Categories[i].Id == item.CategoryId)
+                                                {
+                                                    <text>@ViewBag.Categories[i].Name</text>
+                                                }
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Price:</th>
+                                    <td>$@item.Price</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Quantity:</th>
+                                    <td>@item.Quantity</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="about text-muted">
+                        @item.Description
+                    </p>
+                    <a class="reading btn" href="#">Add to cart</a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><a href="details.html">@item.Name</a></h5>
+                    <p class="card-text">CH. 2</p>
+                    
+                </div>
+            </div>
+        </div>
+    }
+    
+</div>

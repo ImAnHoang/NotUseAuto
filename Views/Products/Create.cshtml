@@ -34,12 +34,13 @@
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-
-            <div>
-                <br>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div>
-                <select asp-for="CategoryId" class="form-control" required>
+                <select asp-for="CategoryId" class="form-control" >
                     <option value="0">Please select 1 category :)</option>
                     @{
                         foreach (var item in ViewBag.Categories)
@@ -55,7 +56,7 @@
                 <br>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" asp-route="" />
             </div>
         </form>
     </div>
