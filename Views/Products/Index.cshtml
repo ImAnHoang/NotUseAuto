@@ -68,16 +68,35 @@
                                                 <td style="">
                                                     @item.Quantity
                                                 </td>
+                                                @if(item.Quantity>=1)
+                                                {
+
                                                 <td style="">
-                                                    <span class="badge badge-success">Active</span>
+                                                    <span class="badge badge-success">Available</span>
                                                 </td>
-
-                <td>
-                    <a asp-controller="Products" asp-action="Confirm" asp-route-id="@item.Id" class="btn btn-danger button">Delete</a>
-                </td>
-                <td><a asp-area="Areas" as></a></td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+                                                }
+                                                else
+                                                {
+                                                <td style="">
+                                                    <span class="badge badge-danger">Out of Stock</span>
+                                                </td>
+                                                }
+                                                <td class="table-action" style="">
+                                                <a asp-controller="Products" asp-action="Details" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-eye"></i></a>
+                                                <a asp-controller="Products" asp-action="Edit" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                                <a asp-controller="Products" asp-action="Confirm" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-delete"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div> <!-- end card-body-->
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+</div>

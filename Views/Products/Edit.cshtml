@@ -1,7 +1,7 @@
 ﻿@model NotUseAuto.Models.Product
 
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Create";
 }
 
 <h1>Update</h1>
@@ -37,7 +37,15 @@
     </div>
     <div class="form-group mb-3">
         <label asp-for="Description"></label>
-        <input asp-validation-for="Description" class="form-control" id="validationCustom04"
+        <input asp-for="Description" class="form-control" id="validationCustom04"
+               required>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control" id="validationCustom04"
                required>
         <div class="valid-feedback">
             Looks good!

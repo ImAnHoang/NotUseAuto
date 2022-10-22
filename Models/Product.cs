@@ -16,7 +16,7 @@ namespace NotUseAuto.Models
         [Range(1, 1000, ErrorMessage = "Price must be 1 to 1000")]
         public decimal Price { get; set; }
         [Required]
-        [Range(1, 100, ErrorMessage = "Quantity must be 1 to 100")]
+        [Range(0, 100, ErrorMessage = "Quantity must be 1 to 100")]
         public int Quantity { get; set; }
         [Required]
         public string Description { get; set; }
