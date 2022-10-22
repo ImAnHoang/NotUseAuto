@@ -1,4 +1,5 @@
-﻿    using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NotUseAuto.Data;
 
 using NotUseAuto.Models;
@@ -7,6 +8,7 @@ using System.Linq;
 
 namespace NotUseAuto.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -23,7 +25,9 @@ namespace NotUseAuto.Controllers
             ViewBag.Categories = categories;
             return View(products);
         }
+        
         [HttpGet]
+        
         public IActionResult Create()
         {
             var categories = context.Category.ToList();

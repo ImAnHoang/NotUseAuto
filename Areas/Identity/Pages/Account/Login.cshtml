@@ -1,18 +1,27 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-}
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
+<div class="auth-fluid-form-box" style="background: rgba(0,0,0,0.5);">
+    <div class="align-items-center d-flex h-100">
+        <div class="card-body">
+
+            <!-- Logo -->
+            <div class="auth-brand text-center text-lg-left">
+                <a href="index.html" class="logo-dark">
+                    <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
+                </a>
+                <a href="index.html" class="logo-light">
+                    <span><img src="assets/images/logo.png" alt="" height="18"></span>
+                </a>
+            </div>
+
+            <!-- title-->
+            <h4 class="mt-0">Sign In</h4>
+            <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+
+            <!-- form -->
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
@@ -34,47 +43,36 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Log in</button>
                 </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
+                <div class="form-group mb-0 text-center">
+                    <button class="btn btn-primary btn-block" type="submit"><i class="mdi mdi-login"></i> Log In </button>
+                </div>
+                <!-- social-->
+                <div class="text-center mt-4">
+                    <p class="text-muted font-16">Sign in with</p>
+                    <ul class="social-list list-inline mt-3">
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github-circle"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h4>Use another service to log in.</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
+            <!-- end form-->
+            <!-- Footer-->
+            <footer class="footer footer-alt">
+                <p class="text-muted">Don't have an account? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"><b>Sign Up</b></a></p>
+            </footer>
+
+        </div> <!-- end .card-body -->
+    </div> <!-- end .align-items-center.d-flex.h-100-->
 </div>
 
 @section Scripts {

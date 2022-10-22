@@ -8,12 +8,12 @@
     <div class="container-fluid">
 
         <!-- LOGO -->
-        <a href="{{Route('user.view')}}" class="topnav-logo">
+        <a asp-controller="Customer" asp-action="Index" class="topnav-logo">
             <span class="topnav-logo-lg">
-                <img src="{{asset('images/pecaden.png')}}" alt="logo" height="40px">
+                <img src="~/images/onepiece.png" alt="logo" height="40px">
             </span>
             <span class="topnav-logo-sm">
-                <img src="{{asset('images/pecaden.png')}}" alt="" height="40px">
+                <img src="~/images/onepiece.png" alt="" height="40px">
             </span>
         </a>
         <ul class="list-unstyled topbar-right-menu float-right mb-0">
@@ -91,48 +91,33 @@
 
     </div>
 </div>
- <div id="carouselExampleControls" class="carousel slide "
-         data-ride="carousel" style="height: 500px">
-        <div class="carousel-inner" role="listbox" style="height: 100%; width: 100%">
-            <div class="carousel-item ">
-                <img class="d-block img-fluid mx-auto"
-                     src="{{asset('/images/puppy_images/bg.jpg')}}" alt="First slide">
-                <div class="carousel-caption d-none d-md-block" style="height: 100%;">
-                    <h2>Welcome to PECA</h2>
-                    <h3 class="text-white">Find your new best friend</h3>
-                    <p>Browse pets from our network of over 11,500 shelters and rescues.</p>
-                </div>
-            </div>
-            <div class="carousel-item active">
-                <img class="d-block img-fluid mx-auto"
-                     src="{{asset('/images/puppy_images/big.jpg')}}" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block" style="height: 100%;">
-                    <h2>Welcome to PECA</h2>
-                    <h3 class="text-white">Find your new best friend</h3>
-                    <p>Browse pets from our network of over 11,500 shelters and rescues.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid mx-auto"
-                     src="{{asset('/images/puppy_images/carousel2.jpg')}}" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block" style="height: 100%;">
-                    <h2>Welcome to PECA</h2>
-                    <h3 class="text-white">Find your new best friend</h3>
-                    <p>Browse pets from our network of over 11,500 shelters and rescues.</p>
-                </div>
-            </div>
+<div id="carouselExampleControls" class="carousel slide "
+     data-ride="carousel" style="height: 500px">
+    <div class="carousel-inner" role="listbox" style="height: 100%; width: 100%">
+        <div class="carousel-item ">
+            <img class="d-block img-fluid mx-auto"
+                 src="~/Customer/img/slider1.jpg" alt="First slide">
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-           data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-           data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        <div class="carousel-item active">
+            <img class="d-block img-fluid mx-auto"
+                 src="~/Customer/img/cover2.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block img-fluid mx-auto"
+                 src="~/Customer/img/cover3.jpg" alt="Third slide">
+        </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
     <div class="container-fluid mm-active">
         <div class="wrapper mm-show">
             <div class="content-page">
@@ -152,7 +137,7 @@
                                         <!-- project title-->
                                         <h4 class="mt-0">
                                             <a asp-controller="Products" asp-action="Details">
-                                               class="text-title">@item.Name</a>
+                                               <class="text-title">@item.Name</a>
                                         </h4>
 
                                         <!-- project detail-->
@@ -173,7 +158,7 @@
                                             </span>
                                             <span class="text-nowrap">
                                                 <i class="uil-home"></i>
-                                                <b>@item.Price</b>
+                                                <b>$@item.Price</b>
                                             </span>
                                             <span class="text-nowrap">
                                                 <i class="uil-meh-alt"></i>

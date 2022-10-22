@@ -15,7 +15,7 @@ namespace NotUseAuto.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.29")
+                .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -49,14 +49,14 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "50ef8ff8-ccd6-44ff-a038-7284b98a8c73",
+                            ConcurrencyStamp = "13a85554-17bf-4318-b09e-7477120e51a5",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "76acfaa3-6e55-424a-adcd-08bec218a291",
+                            ConcurrencyStamp = "29dc3c5a-d4ad-4310-919f-45826ead25d3",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         });
@@ -155,14 +155,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7c82f0cc-60fa-426e-bded-26caefdd44bb",
+                            ConcurrencyStamp = "c6e3c394-a681-4a26-9efd-9a49118bad55",
                             Email = "admin@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIOT/1kY/oa8yeBTjC8e5SGeihKfTtkNPcYWbRGgw5DoYj8MZfbnxPwdB+POOAqmWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECgrxCF30TjbXpQctYJnr8hVnZCl6sPg3wmUNK2Cpavo74HitgRwuuY96yrenoqkOQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0b778aec-f9d7-4a94-859c-d97db8471d47",
+                            SecurityStamp = "a4f2b0c2-e32a-4ebc-ac0d-e7f0dfcf530c",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -170,14 +170,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8ef50f14-584a-46d2-bfdb-f7091c78d648",
+                            ConcurrencyStamp = "ec56cabe-ae1c-4113-b5af-b952e0dce23e",
                             Email = "customer@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELhKI0up5wZwRmyNihdvCBJUUvutiV/AVSyaxJWC7t7ynNphixX6lMndjpMzLsCkJg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAtde++XGn4E9KTgMOREN35P/y19PTFceBVkogCMduFSC1LsIxXfwUFUUlQwaq/BVw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7e5f349e-b05a-4c49-a5f8-5bff6594381b",
+                            SecurityStamp = "9ce8c8bd-297d-4599-8985-bfa1492ffad2",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         });

@@ -216,8 +216,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "50ef8ff8-ccd6-44ff-a038-7284b98a8c73", "Administrator", "Administrator" },
-                    { "B", "76acfaa3-6e55-424a-adcd-08bec218a291", "Customer", "Customer" }
+                    { "A", "13a85554-17bf-4318-b09e-7477120e51a5", "Administrator", "Administrator" },
+                    { "B", "29dc3c5a-d4ad-4310-919f-45826ead25d3", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -225,8 +225,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "7c82f0cc-60fa-426e-bded-26caefdd44bb", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEIOT/1kY/oa8yeBTjC8e5SGeihKfTtkNPcYWbRGgw5DoYj8MZfbnxPwdB+POOAqmWQ==", null, false, "0b778aec-f9d7-4a94-859c-d97db8471d47", false, "admin@fpt.com" },
-                    { "2", 0, "8ef50f14-584a-46d2-bfdb-f7091c78d648", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAELhKI0up5wZwRmyNihdvCBJUUvutiV/AVSyaxJWC7t7ynNphixX6lMndjpMzLsCkJg==", null, false, "7e5f349e-b05a-4c49-a5f8-5bff6594381b", false, "customer@fpt.com" }
+                    { "1", 0, "c6e3c394-a681-4a26-9efd-9a49118bad55", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAECgrxCF30TjbXpQctYJnr8hVnZCl6sPg3wmUNK2Cpavo74HitgRwuuY96yrenoqkOQ==", null, false, "a4f2b0c2-e32a-4ebc-ac0d-e7f0dfcf530c", false, "admin@fpt.com" },
+                    { "2", 0, "ec56cabe-ae1c-4113-b5af-b952e0dce23e", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEAtde++XGn4E9KTgMOREN35P/y19PTFceBVkogCMduFSC1LsIxXfwUFUUlQwaq/BVw==", null, false, "9ce8c8bd-297d-4599-8985-bfa1492ffad2", false, "customer@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
