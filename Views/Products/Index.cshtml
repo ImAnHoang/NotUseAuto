@@ -6,7 +6,7 @@
 
 <h1>
     Index  <a asp-controller="Products" asp-action="Create" class="btn btn-secondarys button-add" type="button">
-        <i class="fa-solid fa-plus icon-plus" style="padding-top: 10px; --plus"></i>
+        <i class="fa-solid fa-plus icon-plus" style="padding-top: 10px"></i>
     </a>
 </h1>
 
@@ -74,6 +74,7 @@
                 <td>
                     <a asp-controller="Products" asp-action="Confirm" asp-route-id="@item.Id" class="btn btn-danger button">Delete</a>
                 </td>
+                <td><a asp-area="Areas" as></a></td>
             </tr>
         }
     </tbody>
