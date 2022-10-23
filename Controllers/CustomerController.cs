@@ -8,7 +8,7 @@ using System.Data;
 
 namespace NotUseAuto.Controllers
 {
-    [Authorize(Roles = "Customer")]
+    [Authorize(Roles = "Customer,Administrator")]
     public class CustomerController : Controller
     {
         private readonly ApplicationDbContext context;

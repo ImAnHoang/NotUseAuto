@@ -10,7 +10,7 @@ using NotUseAuto.Data;
 namespace NotUseAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221023145640_hoang")]
+    [Migration("20221023184022_hoang")]
     partial class hoang
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,14 +51,14 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "f4d4404f-e649-40da-916f-a460d18e0e44",
+                            ConcurrencyStamp = "c8af844b-9b6e-4f53-8869-5eb4ae101345",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "89fe974e-b370-4bf8-b98b-6e213d927d9f",
+                            ConcurrencyStamp = "d29fe601-7295-4737-aff8-614c1fd0963e",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         });
@@ -98,6 +98,10 @@ namespace NotUseAuto.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -152,37 +156,7 @@ namespace NotUseAuto.Migrations
 
                     b.ToTable("AspNetUsers");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "780afbf4-6976-4002-a693-d2c4b3c4cf93",
-                            Email = "admin@fpt.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECwjyXu5dy4ySpL9+akSyz0iGh5JbOcntzOtwmwt6NcA/FGtTjpmzN9sqkdAsDin+A==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "62386e57-9ddc-4256-9428-91046ead38d0",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@fpt.com"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "eeda4c6a-0023-4721-a566-b5d39ee6ab49",
-                            Email = "customer@fpt.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECjnLFRplUUJ2f919ateujc0byWrlRTbMGDWJgi3VUhToCcFipKhVufsgIqAd62fWQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "a08da301-8a22-4026-8a02-22ec0cf938f1",
-                            TwoFactorEnabled = false,
-                            UserName = "customer@fpt.com"
-                        });
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -256,6 +230,11 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             UserId = "2",
+                            RoleId = "A"
+                        },
+                        new
+                        {
+                            UserId = "3",
                             RoleId = "B"
                         });
                 });
@@ -600,6 +579,84 @@ namespace NotUseAuto.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WaitCategory");
+                });
+
+            modelBuilder.Entity("NotUseAuto.Models.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoB")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "59246ba7-5c3e-49eb-bb32-6a476ff6baa4",
+                            Email = "hoanghip108@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "hoanghip108@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAECZOoucQ0musfiAO+MnwrscIgH3U2dIJec2g3/herDt9OiYJQql/F2/3UK9c3CvopQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "cb25410a-4498-4f8c-8d24-a490098d501f",
+                            TwoFactorEnabled = false,
+                            UserName = "hoanghip108@gmail.com",
+                            Address = "Thái Nguyên",
+                            DoB = "2000/08/10",
+                            FullName = "Đỗ Nguyễn Huy Hoàng",
+                            Image = "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "29157c75-1b46-4590-9aa6-78d22ce001cc",
+                            Email = "customer@fpt.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "customer@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOGIwCjzh1wvzAMO22NqRZqJ9mCNKMhvD7AvmQhhcSi5l1mIANbbJOob5nRQDaStYQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "9f385300-cb6e-4289-8e7b-d55636e029ad",
+                            TwoFactorEnabled = false,
+                            UserName = "customer@fpt.com",
+                            Address = "Phú Thọ",
+                            DoB = "2002/08/10",
+                            FullName = "Huy",
+                            Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "484016cb-b43f-48cb-bbb0-105d28606fac",
+                            Email = "admin@fpt.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "admin@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF0co46+rr3BZr3Dotopo6bhDlBeugCkOQo6C69gQiSN4nNi7ta3a4d2ar4RJJK00Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "be10f330-6941-404d-b122-8e22b4588082",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@fpt.com",
+                            Address = "Hà Nội",
+                            DoB = "2002/08/10",
+                            FullName = "Trọng Đạt",
+                            Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

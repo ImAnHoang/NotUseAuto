@@ -39,7 +39,12 @@ namespace NotUseAuto.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    Image = table.Column<string>(nullable: true),
+                    FullName = table.Column<string>(nullable: true),
+                    DoB = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -216,17 +221,18 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "f4d4404f-e649-40da-916f-a460d18e0e44", "Administrator", "Administrator" },
-                    { "B", "89fe974e-b370-4bf8-b98b-6e213d927d9f", "Customer", "Customer" }
+                    { "A", "c8af844b-9b6e-4f53-8869-5eb4ae101345", "Administrator", "Administrator" },
+                    { "B", "d29fe601-7295-4737-aff8-614c1fd0963e", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Address", "DoB", "FullName", "Image" },
                 values: new object[,]
                 {
-                    { "1", 0, "780afbf4-6976-4002-a693-d2c4b3c4cf93", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAECwjyXu5dy4ySpL9+akSyz0iGh5JbOcntzOtwmwt6NcA/FGtTjpmzN9sqkdAsDin+A==", null, false, "62386e57-9ddc-4256-9428-91046ead38d0", false, "admin@fpt.com" },
-                    { "2", 0, "eeda4c6a-0023-4721-a566-b5d39ee6ab49", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAECjnLFRplUUJ2f919ateujc0byWrlRTbMGDWJgi3VUhToCcFipKhVufsgIqAd62fWQ==", null, false, "a08da301-8a22-4026-8a02-22ec0cf938f1", false, "customer@fpt.com" }
+                    { "1", 0, "59246ba7-5c3e-49eb-bb32-6a476ff6baa4", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAECZOoucQ0musfiAO+MnwrscIgH3U2dIJec2g3/herDt9OiYJQql/F2/3UK9c3CvopQ==", null, false, "cb25410a-4498-4f8c-8d24-a490098d501f", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
+                    { "3", 0, "29157c75-1b46-4590-9aa6-78d22ce001cc", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEOGIwCjzh1wvzAMO22NqRZqJ9mCNKMhvD7AvmQhhcSi5l1mIANbbJOob5nRQDaStYQ==", null, false, "9f385300-cb6e-4289-8e7b-d55636e029ad", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "2", 0, "484016cb-b43f-48cb-bbb0-105d28606fac", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEF0co46+rr3BZr3Dotopo6bhDlBeugCkOQo6C69gQiSN4nNi7ta3a4d2ar4RJJK00Q==", null, false, "be10f330-6941-404d-b122-8e22b4588082", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -248,7 +254,8 @@ namespace NotUseAuto.Migrations
                 values: new object[,]
                 {
                     { "1", "A" },
-                    { "2", "B" }
+                    { "3", "B" },
+                    { "2", "A" }
                 });
 
             migrationBuilder.InsertData(

@@ -1,23 +1,28 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NotUseAuto.Data;
-
 using NotUseAuto.Models;
+using System.Collections.Generic;
 using System.Linq;
-
+using System.Security.Claims;
 
 namespace NotUseAuto.Controllers
 {
 
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public class ProductsController : Controller
     {
+        
         private readonly ApplicationDbContext context;
+        
+        
         public ProductsController(ApplicationDbContext dbContext)
         {
-            context = dbContext;
-            
+            context = dbContext; 
+
         }
+        protected UserManager<ApplicationUser> UserManager { get; set; }
         [Route("/")]
         public IActionResult Index()
         {
@@ -88,6 +93,21 @@ namespace NotUseAuto.Controllers
             context.Product.Remove(product);
             context.SaveChanges();
             return Redirect("/");
+        }
+        public   IActionResult UserView()
+        {
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            string currentUserId = claims.Value;
+            ApplicationUser currentUser = (ApplicationUser)context.Users.FirstOrDefault(x => x.Id == currentUserId);
+            ViewBag.Img = currentUser.Image;
+            ViewBag.Id = currentUser.Id;
+            ViewBag.Email = currentUser.Email;
+            ViewBag.UserName = currentUser.UserName;
+            ViewBag.Fullname = currentUser.FullName;
+            ViewBag.Address = currentUser.Address;
+            ViewBag.Dob = currentUser.DoB;
+            return View(currentUser);
         }
     }
     

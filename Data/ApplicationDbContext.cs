@@ -282,30 +282,51 @@ namespace NotUseAuto.Data
         private void SeedUser(ModelBuilder builder)
         {
             //1. tạo tài khoản ban đầu để add vào DB
-            var admin = new IdentityUser
+            var admin = new ApplicationUser
             {
                 Id = "1",
-                UserName = "admin@fpt.com",
-                Email = "admin@fpt.com",
-                NormalizedUserName = "admin@fpt.com"
+                UserName = "hoanghip108@gmail.com",
+                Email = "hoanghip108@gmail.com",
+                NormalizedUserName = "hoanghip108@gmail.com",
+                Image = "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B",
+                DoB = "2000/08/10",
+                Address = "Thái Nguyên",
+                FullName = "Đỗ Nguyễn Huy Hoàng"
             };
-
-            var customer = new IdentityUser
+            var admin2 = new ApplicationUser
             {
                 Id = "2",
+                UserName = "admin@fpt.com",
+                Email = "admin@fpt.com",
+                NormalizedUserName = "admin@fpt.com",
+                Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
+                DoB = "2002/08/10",
+                Address = "Hà Nội",
+                FullName = "Trọng Đạt"
+            };
+
+            var customer = new ApplicationUser
+            {
+                Id = "3",
                 UserName = "customer@fpt.com",
                 Email = "customer@fpt.com",
-                NormalizedUserName = "customer@fpt.com"
+                NormalizedUserName = "customer@fpt.com",
+                Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
+                DoB = "2002/08/10",
+                Address = "Phú Thọ",
+                FullName = "Huy"
+
             };
 
             //2. khai báo thư viện để mã hóa mật khẩu
-            var hasher = new PasswordHasher<IdentityUser>();
+            var hasher = new PasswordHasher<ApplicationUser>();
 
             //3. thiết lập và mã hóa mật khẩu   từng tài khoản
-            admin.PasswordHash = hasher.HashPassword(admin, "123456");
+            admin.PasswordHash = hasher.HashPassword(admin, "Hoanghandsome1");
+            admin2.PasswordHash = hasher.HashPassword(admin2, "123456");
             customer.PasswordHash = hasher.HashPassword(customer, "123456");
 
-            builder.Entity<IdentityUser>().HasData(admin, customer);
+            builder.Entity<ApplicationUser>().HasData(admin, customer,admin2);
         }
 
         private void SeedUserRole(ModelBuilder builder)
@@ -319,6 +340,11 @@ namespace NotUseAuto.Data
                  new IdentityUserRole<string>
                  {
                      UserId = "2",
+                     RoleId = "A"
+                 },
+                 new IdentityUserRole<string>
+                 {
+                     UserId = "3",
                      RoleId = "B"
                  }
               );
