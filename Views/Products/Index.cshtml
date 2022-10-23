@@ -32,7 +32,7 @@
                             <td class="sorting_1">
                                 <img src="@item.Image" alt="contact-img" title="contact-img" class="rounded mr-3" height="48">
                                 <p class="m-0 d-inline-block align-middle font-16">
-                                    <a href="apps-ecommerce-products-details.html" class="text-body">@item.Name</a>
+                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" class="text-body">@item.Name</a>
                                     <br>
                                     <span class="text-warning mdi mdi-star"></span>
                                     <span class="text-warning mdi mdi-star"></span>
