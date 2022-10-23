@@ -83,7 +83,7 @@
                    role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-registered-trademark"></i> Register</a>
             </li>
             <li class="dropdown notification-list topbar-dropdown">
-                <a href="" class="nav-link dropdown-toggle arrow-none"
+                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link dropdown-toggle arrow-none"
                    role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-registered-trademark"></i> Login</a>
             </li>
         </ul>
@@ -137,7 +137,9 @@
                                         <!-- project title-->
                                         <h4 class="mt-0">
                                             <a asp-controller="Products" asp-action="Details">
-                                               <class="text-title">@item.Name</a>
+                                               <class="text-title">@item.Name
+
+                                               </a>
                                         </h4>
 
                                         <!-- project detail-->

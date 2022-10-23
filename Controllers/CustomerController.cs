@@ -3,9 +3,12 @@ using NotUseAuto.Data;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace NotUseAuto.Controllers
 {
+    [Authorize(Roles = "Customer")]
     public class CustomerController : Controller
     {
         private readonly ApplicationDbContext context;

@@ -16,6 +16,7 @@ namespace NotUseAuto.Areas.Identity.Pages.Account
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
+        
         public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
@@ -32,6 +33,7 @@ namespace NotUseAuto.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
+
                 return LocalRedirect(returnUrl);
             }
             else

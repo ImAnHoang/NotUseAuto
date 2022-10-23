@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NotUseAuto.Data;
 using NotUseAuto.Models;
+using System.Data;
 using System.Linq;
 
 namespace NotUseAuto.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext context;
