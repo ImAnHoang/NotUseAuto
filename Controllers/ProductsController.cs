@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace NotUseAuto.Controllers
 {
+
     [Authorize]
     public class ProductsController : Controller
     {
@@ -34,6 +35,7 @@ namespace NotUseAuto.Controllers
             ViewBag.Categories = categories;
             return View();
         }
+        
         [HttpPost]
         public IActionResult Create(Product product)
         {

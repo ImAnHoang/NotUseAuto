@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace NotUseAuto.Controllers
 {
+    
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext context;
