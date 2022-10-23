@@ -4,8 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index
-
+<h1>Categories
     <a asp-controller="Category" asp-action="Create" class="btn btn-secondarys button-add" type="button"> <i class="fa-solid fa-plus icon-plus" style="padding-top: 10px"></i></a>
 </h1>
 
@@ -20,7 +19,7 @@
             <th>
                  Description
             </th>
-            <th></th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -37,16 +36,10 @@
                 <td>
                     @item.Description
                 </td>
-                
-                <td>
-                    <a asp-controller="Category" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                </td>
 
-                <td>
-                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-dark">Edit</a>
-                </td>
-                <td>
-                    <a asp-controller="Category" asp-action="Confirm" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                <td class="table-action">
+                    <a asp-controller="Category" asp-action="Edit" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-square-edit-outline "></i></a>
+                    <a asp-controller="Category" asp-action="Confirm" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-delete"></i></a>
                 </td>
             </tr>
         }
