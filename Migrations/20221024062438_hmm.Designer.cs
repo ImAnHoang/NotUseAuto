@@ -10,8 +10,8 @@ using NotUseAuto.Data;
 namespace NotUseAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221023184022_hoang")]
-    partial class hoang
+    [Migration("20221024062438_hmm")]
+    partial class hmm
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,14 +51,14 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "c8af844b-9b6e-4f53-8869-5eb4ae101345",
+                            ConcurrencyStamp = "c05ed094-6f53-4fec-89d8-bb1115e9597a",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "d29fe601-7295-4737-aff8-614c1fd0963e",
+                            ConcurrencyStamp = "a85770f9-09e2-49aa-9897-8fc953e1da5f",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         });
@@ -604,14 +604,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "59246ba7-5c3e-49eb-bb32-6a476ff6baa4",
+                            ConcurrencyStamp = "f9d86fc3-8869-4c40-897b-fed78992e73c",
                             Email = "hoanghip108@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "hoanghip108@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECZOoucQ0musfiAO+MnwrscIgH3U2dIJec2g3/herDt9OiYJQql/F2/3UK9c3CvopQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGTQslYdowdeuakw+lWGJDbUgjya1/K8ywx/LiezvNxF+MmdSBa/Sqi1VqAnJlBrvw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cb25410a-4498-4f8c-8d24-a490098d501f",
+                            SecurityStamp = "1b093096-18e7-4bd7-9eb3-b06961036b44",
                             TwoFactorEnabled = false,
                             UserName = "hoanghip108@gmail.com",
                             Address = "Thái Nguyên",
@@ -623,14 +623,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "29157c75-1b46-4590-9aa6-78d22ce001cc",
+                            ConcurrencyStamp = "0c71dea4-c9bb-4fe5-97ad-50305a456319",
                             Email = "customer@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOGIwCjzh1wvzAMO22NqRZqJ9mCNKMhvD7AvmQhhcSi5l1mIANbbJOob5nRQDaStYQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHy8X79D4/Omc+CPY5psrI8t+zERKOgyyq2hgRwxt3Rcf+3YPJFrFMyd8vaPKa7Iuw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9f385300-cb6e-4289-8e7b-d55636e029ad",
+                            SecurityStamp = "23b7958c-0994-4845-85c5-6b42519a5e16",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com",
                             Address = "Phú Thọ",
@@ -642,14 +642,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "484016cb-b43f-48cb-bbb0-105d28606fac",
+                            ConcurrencyStamp = "42848880-aa68-477e-86f6-b9dc48001d64",
                             Email = "admin@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF0co46+rr3BZr3Dotopo6bhDlBeugCkOQo6C69gQiSN4nNi7ta3a4d2ar4RJJK00Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDvL2xgeG6u6LaOCs/ihpQ15kuom6r8Va6WJ5CcrIVRVoc+XDQhLHSCDWApd22EfvA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "be10f330-6941-404d-b122-8e22b4588082",
+                            SecurityStamp = "0575c136-ed2c-4ffa-9ea6-c07777d01501",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com",
                             Address = "Hà Nội",

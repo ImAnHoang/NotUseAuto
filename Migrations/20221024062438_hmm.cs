@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NotUseAuto.Migrations
 {
-    public partial class hoang : Migration
+    public partial class hmm : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -221,8 +221,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "c8af844b-9b6e-4f53-8869-5eb4ae101345", "Administrator", "Administrator" },
-                    { "B", "d29fe601-7295-4737-aff8-614c1fd0963e", "Customer", "Customer" }
+                    { "A", "c05ed094-6f53-4fec-89d8-bb1115e9597a", "Administrator", "Administrator" },
+                    { "B", "a85770f9-09e2-49aa-9897-8fc953e1da5f", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -230,9 +230,9 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Address", "DoB", "FullName", "Image" },
                 values: new object[,]
                 {
-                    { "1", 0, "59246ba7-5c3e-49eb-bb32-6a476ff6baa4", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAECZOoucQ0musfiAO+MnwrscIgH3U2dIJec2g3/herDt9OiYJQql/F2/3UK9c3CvopQ==", null, false, "cb25410a-4498-4f8c-8d24-a490098d501f", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
-                    { "3", 0, "29157c75-1b46-4590-9aa6-78d22ce001cc", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEOGIwCjzh1wvzAMO22NqRZqJ9mCNKMhvD7AvmQhhcSi5l1mIANbbJOob5nRQDaStYQ==", null, false, "9f385300-cb6e-4289-8e7b-d55636e029ad", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "2", 0, "484016cb-b43f-48cb-bbb0-105d28606fac", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEF0co46+rr3BZr3Dotopo6bhDlBeugCkOQo6C69gQiSN4nNi7ta3a4d2ar4RJJK00Q==", null, false, "be10f330-6941-404d-b122-8e22b4588082", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
+                    { "1", 0, "f9d86fc3-8869-4c40-897b-fed78992e73c", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEGTQslYdowdeuakw+lWGJDbUgjya1/K8ywx/LiezvNxF+MmdSBa/Sqi1VqAnJlBrvw==", null, false, "1b093096-18e7-4bd7-9eb3-b06961036b44", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
+                    { "3", 0, "0c71dea4-c9bb-4fe5-97ad-50305a456319", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEHy8X79D4/Omc+CPY5psrI8t+zERKOgyyq2hgRwxt3Rcf+3YPJFrFMyd8vaPKa7Iuw==", null, false, "23b7958c-0994-4845-85c5-6b42519a5e16", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "2", 0, "42848880-aa68-477e-86f6-b9dc48001d64", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEDvL2xgeG6u6LaOCs/ihpQ15kuom6r8Va6WJ5CcrIVRVoc+XDQhLHSCDWApd22EfvA==", null, false, "0575c136-ed2c-4ffa-9ea6-c07777d01501", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
                 });
 
             migrationBuilder.InsertData(

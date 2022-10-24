@@ -55,7 +55,7 @@
                     <!-- item-->
                     @foreach(var item in ViewBag.Categories)
                     {
-                        <a asp-controller="Customer" asp-action="Index2"asp-route-Id="@item.Id" class="dropdown-item notify-item">
+                        <a asp-controller="Customer" asp-action="Index2" asp-route-Id="@item.Id" class="dropdown-item notify-item">
                             
                             <span class="align-middle">@item.Name</span>
                         </a>
@@ -127,7 +127,7 @@
                                     <div class="card-body position-relative" style="padding-left: unset; padding-right: unset; margin-bottom: 9px ">
                                         <!-- project title-->
                                         <h4 class="mt-0">
-                                            <a asp-controller="Products" asp-action="Details">
+                                            <a asp-controller="Customer" asp-action="Detail" asp-route-id="@item.Id">
                                                <class="text-title">@item.Name
 
                                                </a>

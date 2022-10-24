@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,10 +118,12 @@
                                     <span>My Account</span>
                                 </a>
                                 <!-- item-->
-                                <a class="dropdown-item notify-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                    <i class="mdi mdi-logout mr-1"></i>
-                                    <span>Logout</span>
-                                </a>
+                                @if (SignInManager.IsSignedIn(User)){
+                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="dropdown-item notify-item"> <i class="mdi mdi-logout mr-1"></i>Logout</button>
+                                    </form>
+                                }
+                               
 
                             </div>
                         </li>

@@ -33,5 +33,14 @@ namespace NotUseAuto.Controllers
 
             return View(productSearch);
         }
+
+        [HttpGet]
+        public IActionResult Detail(int? id)
+        {
+            var products = context.Product.ToList();
+            var item = products.Find(p => p.Id == id);
+            return View(item);
+        }
+
     }
 }
