@@ -10,13 +10,8 @@ using NotUseAuto.Data;
 namespace NotUseAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-    [Migration("20221024062438_hmm")]
+    [Migration("20221024150424_hmm")]
     partial class hmm
-========
-    [Migration("20221023194157_hoang")]
-    partial class hoang
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,22 +51,14 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            ConcurrencyStamp = "c05ed094-6f53-4fec-89d8-bb1115e9597a",
-========
-                            ConcurrencyStamp = "ed15533d-3697-4ba4-b979-703cd1ef87d3",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            ConcurrencyStamp = "e3b823d8-0cfb-46c2-b672-bdeabcc13189",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            ConcurrencyStamp = "a85770f9-09e2-49aa-9897-8fc953e1da5f",
-========
-                            ConcurrencyStamp = "457c263d-4c04-4ce9-839a-2429e7b02ff9",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            ConcurrencyStamp = "d41b3e27-ca5b-4a51-a0a6-7c50839ca987",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         });
@@ -617,24 +604,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            ConcurrencyStamp = "f9d86fc3-8869-4c40-897b-fed78992e73c",
-========
-                            ConcurrencyStamp = "41fe38ef-30cb-4d42-80a7-0a16ae7df3ce",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            ConcurrencyStamp = "1ba6960e-6688-48a3-b734-169fce45d66d",
                             Email = "hoanghip108@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "hoanghip108@gmail.com",
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEGTQslYdowdeuakw+lWGJDbUgjya1/K8ywx/LiezvNxF+MmdSBa/Sqi1VqAnJlBrvw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENelNhGe6G4Rqkmu+DiXK56QX6mXM3LWr0npx8dUPR1UU/D19q6pT/Q3n9u+vfAXbA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1b093096-18e7-4bd7-9eb3-b06961036b44",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAEEQ7MIN//FA2O15ozDVLEPCsch/TVPkohMljyjiPJFGk0/N6aUU4zGg0Cni8KF08Lw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "89af7d0b-7ad9-4a03-b3aa-387e9c5a8d08",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            SecurityStamp = "ca101e94-0339-41ec-b5c0-239a98fec30a",
                             TwoFactorEnabled = false,
                             UserName = "hoanghip108@gmail.com",
                             Address = "Thái Nguyên",
@@ -646,24 +623,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            ConcurrencyStamp = "0c71dea4-c9bb-4fe5-97ad-50305a456319",
-========
-                            ConcurrencyStamp = "1de2c6ea-7e4f-46ee-9b27-f9138cbe4f7b",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            ConcurrencyStamp = "7c3c99be-2028-4faf-a52c-5ba631f69103",
                             Email = "customer@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEHy8X79D4/Omc+CPY5psrI8t+zERKOgyyq2hgRwxt3Rcf+3YPJFrFMyd8vaPKa7Iuw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB6PfBNVzuCxBoyH5aGsEeA47Lc2AGMr08PntSv2CZw7Nt/25xNG2jBi3JpRT7ZUcg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "23b7958c-0994-4845-85c5-6b42519a5e16",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAEL1wUbUEey5rmRLHVgz4vwVU0BoeaGJ3O8qvN1KrGJ2XkY82cd/FUzBzH8zxqFdpvw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "c1b71776-4bda-4eb9-a72c-da68421f56c5",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            SecurityStamp = "a29176d9-27d8-47d7-a146-7fbd8c622740",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com",
                             Address = "Phú Thọ",
@@ -675,24 +642,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            ConcurrencyStamp = "42848880-aa68-477e-86f6-b9dc48001d64",
-========
-                            ConcurrencyStamp = "9895823c-20c1-41b4-9535-37aac18612d5",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            ConcurrencyStamp = "84416f95-8b3d-47c6-9016-f80e0347f6bc",
                             Email = "admin@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEDvL2xgeG6u6LaOCs/ihpQ15kuom6r8Va6WJ5CcrIVRVoc+XDQhLHSCDWApd22EfvA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPGDnt0pWp0kNjKM6cn9opw9fcipuh/CttZPAxV6HhmqMTDFExkYfM7yTwwOUStDGQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0575c136-ed2c-4ffa-9ea6-c07777d01501",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAEGGgYIRgedNPAnt0tt9+gqfwFP/bLMj115YE2U8lOE0AGBUvMHHgCk1WRCj0bGbSHQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "ec9027d7-eac7-4e68-b2dc-382c87212904",
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+                            SecurityStamp = "37f4beea-a3f8-482d-9410-33020532aaa8",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com",
                             Address = "Hà Nội",
