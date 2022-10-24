@@ -221,8 +221,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "c8af844b-9b6e-4f53-8869-5eb4ae101345", "Administrator", "Administrator" },
-                    { "B", "d29fe601-7295-4737-aff8-614c1fd0963e", "Customer", "Customer" }
+                    { "A", "ed15533d-3697-4ba4-b979-703cd1ef87d3", "Administrator", "Administrator" },
+                    { "B", "457c263d-4c04-4ce9-839a-2429e7b02ff9", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -230,9 +230,9 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Address", "DoB", "FullName", "Image" },
                 values: new object[,]
                 {
-                    { "1", 0, "59246ba7-5c3e-49eb-bb32-6a476ff6baa4", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAECZOoucQ0musfiAO+MnwrscIgH3U2dIJec2g3/herDt9OiYJQql/F2/3UK9c3CvopQ==", null, false, "cb25410a-4498-4f8c-8d24-a490098d501f", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
-                    { "3", 0, "29157c75-1b46-4590-9aa6-78d22ce001cc", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEOGIwCjzh1wvzAMO22NqRZqJ9mCNKMhvD7AvmQhhcSi5l1mIANbbJOob5nRQDaStYQ==", null, false, "9f385300-cb6e-4289-8e7b-d55636e029ad", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "2", 0, "484016cb-b43f-48cb-bbb0-105d28606fac", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEF0co46+rr3BZr3Dotopo6bhDlBeugCkOQo6C69gQiSN4nNi7ta3a4d2ar4RJJK00Q==", null, false, "be10f330-6941-404d-b122-8e22b4588082", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
+                    { "1", 0, "41fe38ef-30cb-4d42-80a7-0a16ae7df3ce", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEEQ7MIN//FA2O15ozDVLEPCsch/TVPkohMljyjiPJFGk0/N6aUU4zGg0Cni8KF08Lw==", null, false, "89af7d0b-7ad9-4a03-b3aa-387e9c5a8d08", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
+                    { "3", 0, "1de2c6ea-7e4f-46ee-9b27-f9138cbe4f7b", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEL1wUbUEey5rmRLHVgz4vwVU0BoeaGJ3O8qvN1KrGJ2XkY82cd/FUzBzH8zxqFdpvw==", null, false, "c1b71776-4bda-4eb9-a72c-da68421f56c5", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "2", 0, "9895823c-20c1-41b4-9535-37aac18612d5", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEGGgYIRgedNPAnt0tt9+gqfwFP/bLMj115YE2U8lOE0AGBUvMHHgCk1WRCj0bGbSHQ==", null, false, "ec9027d7-eac7-4e68-b2dc-382c87212904", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
                 });
 
             migrationBuilder.InsertData(

@@ -33,5 +33,11 @@ namespace NotUseAuto.Controllers
 
             return View(productSearch);
         }
+        public IActionResult Details(int? id)
+        {
+            var products = context.Product.ToList();
+            var item = products.FirstOrDefault(c => c.Id == id);
+            return View(item);
+        }
     }
 }
