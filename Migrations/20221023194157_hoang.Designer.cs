@@ -10,17 +10,16 @@ using NotUseAuto.Data;
 namespace NotUseAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Migrations/20221024062438_hmm.Designer.cs
-    [Migration("20221024062438_hmm")]
-    partial class hmm
-========
+
+
+
     [Migration("20221023194157_hoang")]
     partial class hoang
->>>>>>>> 20da50b3a13f3fedc3705b11d23affdc7ba4762f:Migrations/20221023194157_hoang.Designer.cs
+
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
