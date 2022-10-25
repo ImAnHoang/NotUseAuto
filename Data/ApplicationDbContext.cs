@@ -39,37 +39,43 @@ namespace NotUseAuto.Data
                 {
                     Id = 1,
                     Name = "Action",
-                    Description = "Action"
+                    Description = "Action",
+                    Status = "Active"
                 },
                 new Category
                 {
                     Id = 2,
                     Name = "Anime",
-                    Description = "Anime"
+                    Description = "Anime",
+                    Status = "Active"
                 },
                 new Category
                 {
                     Id = 3,
                     Name = "Fantasy",
-                    Description = "Fantasy"
+                    Description = "Fantasy",
+                    Status = "Active"
                 },
                 new Category
                 {
                     Id = 4,
                     Name = "Adventure",
-                    Description = "Adventure"
+                    Description = "Adventure",
+                    Status = "Active"
                 },
                 new Category
                 {
                     Id = 5,
                     Name = "Magic",
-                    Description = "Magic"
+                    Description = "Magic",
+                    Status = "Active"
                 },
                 new Category
                 {
                     Id = 6,
                     Name = "Drama",
-                    Description = "Drama"
+                    Description = "Drama",
+                    Status = "Active"
                 }
                 );
             builder.Entity<Product>().HasData(
@@ -301,6 +307,7 @@ namespace NotUseAuto.Data
                 Address = "Hà Nội",
                 FullName = "Trọng Đạt"
             };
+            
 
             var customer = new ApplicationUser
             {
@@ -314,6 +321,42 @@ namespace NotUseAuto.Data
                 FullName = "Huy"
 
             };
+            var admin3 = new ApplicationUser
+            {
+                Id = "4",
+                UserName = "quanghuy@fpt.com",
+                Email = "quanghuy@fpt.com",
+                NormalizedUserName = "quanghuy@fpt.com",
+                Image = "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg",
+                DoB = "2002/02/18",
+                Address = "Hà Nội",
+                FullName = "Dang Quang Huy"
+            };
+            var owner1 = new ApplicationUser
+            {
+                Id = "5",
+                UserName = "owner1@fpt.com",
+                Email = "owner1@fpt.com",
+                NormalizedUserName = "owner1@fpt.com",
+                Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
+                DoB = "2002/08/10",
+                Address = "Phú Thọ",
+                FullName = "Lan Phuong"
+
+            };
+
+            var owner2 = new ApplicationUser
+            {
+                Id = "6",
+                UserName = "owner2@fpt.com",
+                Email = "owner2@fpt.com",
+                NormalizedUserName = "owner2@fpt.com",
+                Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png",
+                DoB = "2002/08/10",
+                Address = "Phú Thọ",
+                FullName = "Truc My"
+
+            };
 
             //2. khai báo thư viện để mã hóa mật khẩu
             var hasher = new PasswordHasher<ApplicationUser>();
@@ -322,8 +365,12 @@ namespace NotUseAuto.Data
             admin.PasswordHash = hasher.HashPassword(admin, "Hoanghandsome1");
             admin2.PasswordHash = hasher.HashPassword(admin2, "123456");
             customer.PasswordHash = hasher.HashPassword(customer, "123456");
+            admin3.PasswordHash = hasher.HashPassword(admin3, "123456");
+            owner1.PasswordHash = hasher.HashPassword(owner1, "123456");
+            owner2.PasswordHash = hasher.HashPassword(owner2, "123456");
 
-            builder.Entity<ApplicationUser>().HasData(admin, customer, admin2);
+
+            builder.Entity<ApplicationUser>().HasData(admin, customer, admin2, admin3, owner1, owner2);
         }
 
         private void SeedUserRole(ModelBuilder builder)
@@ -343,6 +390,21 @@ namespace NotUseAuto.Data
                  {
                      UserId = "3",
                      RoleId = "B"
+                 },
+                 new IdentityUserRole<string>
+                 {
+                     UserId = "5",
+                     RoleId = "O"
+                 },
+                 new IdentityUserRole<string>
+                 {
+                     UserId = "6",
+                     RoleId = "O"
+                 },
+                 new IdentityUserRole<string>
+                 {
+                     UserId = "4",
+                     RoleId = "A"
                  }
               );
 
@@ -363,9 +425,15 @@ namespace NotUseAuto.Data
                 Name = "Customer",
                 NormalizedName = "Customer"
             };
+            var Owner = new IdentityRole
+            {
+                Id = "O",
+                Name = "Owner",
+                NormalizedName = "Owner"
+            };
 
             //2. add role vào trong DB
-            builder.Entity<IdentityRole>().HasData(admin, customer);
+            builder.Entity<IdentityRole>().HasData(admin, customer, Owner);
         }
     }
 

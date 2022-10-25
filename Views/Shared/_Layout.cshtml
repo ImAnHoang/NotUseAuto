@@ -29,16 +29,16 @@
             <!-- LOGO -->
             <a asp-controller="Products" asp-action="Index" class="logo text-center logo-light">
                 <a class="logo text-center logo-light" asp-controller="Products" asp-action="Index">
-                   <span class="logo-lg">
-                      <img src="~/images/onepiece.png" alt="" height="50">
-                   </span>
+                    <span class="logo-lg">
+                        <img src="~/images/onepiece.png" alt="" height="50">
+                    </span>
                     <span class="logo-sm">
                         nav-link dropdown-toggle nav-user arrow-none mr-0
-                       <img src="~/images/Omini.png" alt="" height="16">
+                        <img src="~/images/Omini.png" alt="" height="16">
                     </span>
                 </a>
             </a>
-            
+
             <!-- LOGO -->
             <a asp-controller="Products" asp-action="Index" class="logo text-center logo-dark">
                 <span class="logo-lg">
@@ -67,8 +67,24 @@
                             <span> Categories </span>
                         </a>
                     </li>
-                    
-                    
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                    {
+                        <li class="side-nav-item">
+                            <a asp-controller="Admin" asp-action="Index" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Manage </span>
+                            </a>
+                        </li>
+                        <li class="side-nav-item">
+                            <a asp-controller="Admin" asp-action="Reset" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Reset Password </span>
+                            </a>
+                        </li>
+                    }
+
+
+
                 </ul>
             </div>
             <!-- Sidebar -left -->
@@ -118,15 +134,15 @@
                                     <i class="mdi mdi-account-circle mr-1"></i>
                                     <span>My Account</span>
                                 </a>
-                                
+
                                 <!-- item-->
-                                @if (SignInManager.IsSignedIn(User)){
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+
                                     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                         <button type="submit" class="dropdown-item notify-item"> <i class="mdi mdi-logout mr-1"></i>Logout</button>
                                     </form>
                                 }
-                               
-
                             </div>
                         </li>
 
