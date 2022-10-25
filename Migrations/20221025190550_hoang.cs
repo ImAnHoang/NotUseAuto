@@ -66,6 +66,19 @@ namespace NotUseAuto.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WaitCart",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CartItem_Capacity = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WaitCart", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "WaitCategory",
                 columns: table => new
                 {
@@ -221,8 +234,8 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "6b089d5b-a0ab-488d-9f44-f8989b44c99e", "Administrator", "Administrator" },
-                    { "B", "e8f40619-058b-469a-b809-c53d515d1bb7", "Customer", "Customer" }
+                    { "A", "f7acc68c-1e4a-4543-b7d3-d94d16ef749f", "Administrator", "Administrator" },
+                    { "B", "67daaa76-d59e-4bb9-bc46-939525a1a183", "Customer", "Customer" }
                 });
 
             migrationBuilder.InsertData(
@@ -230,9 +243,9 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Address", "DoB", "FullName", "Image" },
                 values: new object[,]
                 {
-                    { "1", 0, "0de2c102-0a23-4c12-b93c-c47b6f21d553", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEJH1q75SRk8twfwABLqj0MS+WgqZZs0ulqjj9SUhVPY+TJjGKxvja76tUdGfc6y3rA==", null, false, "e57acb6e-9d8b-42ea-ab89-e18797797710", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
-                    { "3", 0, "ee3b8ac1-edb2-4767-97b9-96b9663fc7ff", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEEaj39MiA65I53glYgYKFBVp/wFlJFpjhCaJKFyX//3ZRFaW1IgcS09g0c2WCzwwww==", null, false, "5bd31839-eed6-460f-95cd-8d287dcb6229", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "2", 0, "183badea-caba-4ba8-9b47-47f5eb999d13", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEGOFUlazNsngR5kCCdeipS7gSxK8Tk3GXd40KyL1j3mFfgCcNd1ZLzMvDcSiRW1GBQ==", null, false, "a6e1c4d7-6e0c-4a35-90bf-754119d8fb29", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
+                    { "1", 0, "8001e2e2-bf53-4d73-b687-c50c3815dda9", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEHbyzUqPf7e/yMapGA/u/JwIFym9tirAKQJilrk6Ms9oOkFfThhgIs+cw3LC6yuyTw==", null, false, "4df1bbb6-6850-4849-8cec-3635ea321f54", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
+                    { "3", 0, "3439c549-a84d-48b9-8ce4-cc543be51bff", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEBb1pvQm3zMEYgizG5/ERl2bgbugcVC0kGveJJHVxbRsA4aWfNBoob5XYM5IYVC7iQ==", null, false, "635daf0e-5db5-4653-aa65-f5bb13d4d8c2", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "2", 0, "eaa3d06e-374f-400e-88ca-eb5d1481bf9e", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEMLIhjM0NYH0I2OEpL6dUsJiVpjs9m1KGqDNpaFI+t31fDaezuUXPuAfFacm//v6Yw==", null, false, "e09a433f-a01f-4000-b04a-f7a7fb820bc1", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -354,6 +367,9 @@ namespace NotUseAuto.Migrations
 
             migrationBuilder.DropTable(
                 name: "Product");
+
+            migrationBuilder.DropTable(
+                name: "WaitCart");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

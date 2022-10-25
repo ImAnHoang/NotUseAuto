@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using NotUseAuto.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Reflection.Emit;
 
 namespace NotUseAuto.Data
 {
@@ -17,9 +18,11 @@ namespace NotUseAuto.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<WaitCategory> WaitCategory { get; set; }
+        public DbSet<WaitCart> WaitCart { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<WaitCart>().OwnsOne(x => x.CartItem);
             base.OnModelCreating(builder);
 
             SeedUser(builder);
@@ -435,6 +438,7 @@ namespace NotUseAuto.Data
             //2. add role vào trong DB
             builder.Entity<IdentityRole>().HasData(admin, customer, Owner);
         }
+        
     }
 
 }
