@@ -9,7 +9,12 @@
         <i class="fa-solid fa-plus icon-plus" style="padding-top: 10px"></i>
     </a>
 </h1>
-
+<p>
+    <a asp-controller="Products" asp-action="SortASC">Sort prices in ascending <i class="fa-solid fa-sort-up"></i></a>
+    <br />
+    <br />
+    <a asp-controller="Products" asp-action="SortDESC">Sort prices in descending <i class="fa-solid fa-sort-down"></i></a>
+</p>
 <div class="table-responsive">
     <div id="products-datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
 

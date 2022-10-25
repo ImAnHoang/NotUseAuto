@@ -151,9 +151,9 @@
                         <i class="mdi mdi-menu"></i>
                     </button>
                     <div class="app-search dropdown d-none d-lg-block">
-                        <form>
+                        <form asp-controller="Products" asp-action="Search" method="post">
                             <div class="input-group">
-                                <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search" style="border-radius:25px">
+                                <input type="text" class="form-control dropdown-toggle" placeholder="Search..." name="Search" value="@TempData["search"]" id="top-search" style="border-radius:25px">
                                 <span class="mdi mdi-magnify search-icon"></span>
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit" style="border-radius:25px; margin-left:10px">Search</button>
@@ -175,7 +175,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            2018 - 2020 © Hyper - Coderthemes.com
+                            2018 - 2020 © FPT BOOK MANAGEMENT (FPT.COM)
                         </div>
                     </div>
                 </div>
