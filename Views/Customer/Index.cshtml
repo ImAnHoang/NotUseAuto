@@ -4,7 +4,52 @@
     ViewData["Title"] = "Page Title";
 }
 <div class="navbar-custom topnav-navbar topnav-navbar-dark" style="position: sticky">
+    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+        <li class="dropdown notification-list d-lg-none">
+            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <i class="dripicons-search noti-icon"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
+                <form class="p-3">
+                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                </form>
+            </div>
+        </li>
 
+
+        <li class="dropdown notification-list">
+            <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                <span class="account-user-avatar">
+                    <img src="/images/Omini.png" alt="user-image" class="rounded-circle">
+                </span>
+                <span>
+                    <span class="account-user-name">FPT BOOK</span>
+                    <span class="account-position">BookOwner</span>
+                </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                <!-- item-->
+                <div class=" dropdown-header noti-title">
+                    <h6 class="text-overflow m-0">Welcome !</h6>
+                </div>
+
+                <!-- item-->
+                <a class="dropdown-item notify-item" href="/Products/UserView">
+                    <i class="mdi mdi-account-circle mr-1"></i>
+                    <span>My Account</span>
+                </a>
+                <a asp-controller="Customer" asp-action="Cart" class="dropdown-item notify-item"> <i class="mdi mdi-account-circle mr-1"></i> <span>My Cart</span> </a>
+                <!-- item-->
+                <form class="form-inline" action="/Identity/Account/Logout?returnUrl=%2F" method="post">
+                    <button type="submit" class="dropdown-item notify-item"> <i class="mdi mdi-logout mr-1"></i>Logout</button>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8C4t1oZxGQtLvld7uX16lAWrBTc6xuW--qS6kDNqbvbpGyu_3DHmnhwV2osUZ-2qH0BZGd6QpXlXSVxSF-vh7_OpdJHvMyiDADcnSZLVIXQmMSiLarWl7XQNwi_Si1P63DCtN_vSgiFe6e2vbFpLuQ3yWhLf3o7eHTESfCgumcoYxH1vi7nJ1db2BigHCjNRtA">
+                </form>
+
+
+            </div>
+        </li>
+
+    </ul>
     <div class="container-fluid">
 
         <!-- LOGO -->
@@ -67,19 +112,6 @@
 
             </li>
         </ul>
-        <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                
-            <li class="dropdown notification-list topbar-dropdown">
-                <a href="" class="nav-link dropdown-toggle arrow-none"
-                   role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-registered-trademark"></i> Register</a>
-            </li>
-            <li class="dropdown notification-list topbar-dropdown">
-                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link dropdown-toggle arrow-none"
-                   role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-registered-trademark"></i> Login</a>
-            </li>
-        </ul>
-
-
     </div>
 </div>
  <div id="carouselExampleControls" class="carousel slide "

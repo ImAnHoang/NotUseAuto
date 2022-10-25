@@ -97,9 +97,11 @@ namespace NotUseAuto.Controllers
         public   IActionResult UserView()
         {
             var claimIdentity = (ClaimsIdentity)User.Identity;
+            
             var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
             string currentUserId = claims.Value;
             ApplicationUser currentUser = (ApplicationUser)context.Users.FirstOrDefault(x => x.Id == currentUserId);
+            
             ViewBag.Img = currentUser.Image;
             ViewBag.Id = currentUser.Id;
             ViewBag.Email = currentUser.Email;

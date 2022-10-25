@@ -16,25 +16,22 @@ namespace NotUseAuto.Data
         }
         public DbSet<Product> Product { get; set; }
         public DbSet<Category> Category { get; set; }
-
         public DbSet<WaitCategory> WaitCategory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
 
             SeedUser(builder);
 
             SeedRole(builder);
 
             SeedUserRole(builder);
-            
+
             Seed(builder);
+            
+            
         }
-
-
-
         private void Seed(ModelBuilder builder)
         {
             builder.Entity<Category>().HasData(
@@ -257,14 +254,14 @@ namespace NotUseAuto.Data
                     Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
                 },
                 new Product
-                 {
-                     Id = 19,
-                     Name = "Naruto",
-                     Price = 6000,
-                     Quantity = 60,
-                     Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
-                     CategoryId = 3,
-                     Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
+                {
+                    Id = 19,
+                    Name = "Naruto",
+                    Price = 6000,
+                    Quantity = 60,
+                    Description = "Naruto is a Japanese manga series written and illustrated by Masashi Kishimoto. It tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
+                    CategoryId = 3,
+                    Image = "https://m.media-amazon.com/images/I/81qb4I6rbsL._AC_SL1500_.jpg"
                 },
 
                 new Product
@@ -326,7 +323,7 @@ namespace NotUseAuto.Data
             admin2.PasswordHash = hasher.HashPassword(admin2, "123456");
             customer.PasswordHash = hasher.HashPassword(customer, "123456");
 
-            builder.Entity<ApplicationUser>().HasData(admin, customer,admin2);
+            builder.Entity<ApplicationUser>().HasData(admin, customer, admin2);
         }
 
         private void SeedUserRole(ModelBuilder builder)

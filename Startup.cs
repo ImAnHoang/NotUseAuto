@@ -36,8 +36,13 @@ namespace NotUseAuto
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            
-             
+            services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
+            services.AddSession(cfg => {                    // Đăng ký dịch vụ Session
+                cfg.Cookie.Name = "Hoang";             // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
+                cfg.IdleTimeout = new TimeSpan(0, 30, 0);    // Thời gian tồn tại của Session
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +61,7 @@ namespace NotUseAuto
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthentication();

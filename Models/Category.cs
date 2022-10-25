@@ -15,7 +15,6 @@ namespace NotUseAuto.Models
         [Required]
         public string Description { get; set; }
 
-
         public ICollection<Product> Products { get; set; }
     }
 }

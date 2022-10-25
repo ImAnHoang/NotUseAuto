@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,7 +21,7 @@
     <link rel="stylesheet" href="~/Customer/css/vendor/responsive.bootstrap4.css">
     <link rel="stylesheet" href="~/Customer/css/vendor/jquery-jvectormap-1.2.2.css">
     
-    <title>Peca puppy</title>
+    <title>FPT Book</title>
 </head>
 <body class="loading" data-layout="detached" data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'>
 
