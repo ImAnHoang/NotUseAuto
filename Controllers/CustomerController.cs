@@ -103,6 +103,7 @@ namespace NotUseAuto.Controllers
         {
             return View(GetCartItems());
         }
+        
         [Route("/updatecart", Name = "updatecart")]
         [HttpPost]
         public IActionResult UpdateCart([FromForm] int productid, [FromForm] int quantity)

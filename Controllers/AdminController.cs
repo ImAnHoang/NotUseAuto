@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NotUseAuto.Data;
 using NotUseAuto.Models;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
@@ -10,6 +13,18 @@ namespace NotUseAuto.Controllers
     [Authorize(Roles = "Administrator")]
     public class AdminController : Controller
     {
+        public const string CARTKEY = "cart";
+        List<CartItem> GetCartItems()
+        {
+
+            var session = HttpContext.Session;
+            string jsoncart = session.GetString(CARTKEY);
+            if (jsoncart != null)
+            {
+                return JsonConvert.DeserializeObject<List<CartItem>>(jsoncart);
+            }
+            return new List<CartItem>();
+        }
         private readonly ApplicationDbContext context;
         public AdminController(ApplicationDbContext dbContext)
         {
@@ -42,6 +57,23 @@ namespace NotUseAuto.Controllers
             context.WaitCategory.Remove(item);
             context.SaveChanges();
             return Redirect("/Admin");
+        }
+        public IActionResult CartConfirm()
+        {
+            var cart = GetCartItems();
+            return View(cart);
+        }
+        public IActionResult Accept()
+        {
+            var cart = GetCartItems();
+            var newCart = new WaitCart
+            {
+                CartItem = cart,
+            };
+            
+            var session = HttpContext.Session;
+            session.Remove(CARTKEY);
+            return View("/");
         }
     }
 }
