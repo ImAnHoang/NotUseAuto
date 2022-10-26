@@ -1,9 +1,14 @@
 ﻿@model NotUseAuto.Models.Category
 
-<h3>Product Details</h3>
-<div>
-    <br />
-</div>
-<h4>Name: @Model.Name</h4>
-<h4>Description: @Model.Description</h4>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Owner"))
+{
+    <h3>Category Details</h3>
+    <div>
+        <br />
+    </div>
+    <h4>Name: @Model.Name</h4>
+    <h4>Description: @Model.Description</h4>
+}
+
+
 
