@@ -50,7 +50,6 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
-        [Route("/")]
         public IActionResult Index()
         {
             var products = context.Product.ToList();
@@ -58,27 +57,21 @@ namespace NotUseAuto.Controllers
             ViewBag.Categories = categories;
             return View(products);
         }
-
-
         public IActionResult Index2(int? id)
         {
             var products = context.Product.ToList();
             var categories = context.Category.ToList();
             ViewBag.Categories = categories;
             var productSearch = context.Category.Include(c => c.Products).FirstOrDefault(c => c.Id == id);
+
             return View(productSearch);
         }
-
         public IActionResult Details(int? id)
         {
             var products = context.Product.ToList();
             var item = products.FirstOrDefault(c => c.Id == id);
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
             return View(item);
         }
-
-        [Authorize(Roles = "Customer,Administrator")]
         public IActionResult AddtoCart(int? id)
         {
             var product = context.Product
@@ -104,13 +97,11 @@ namespace NotUseAuto.Controllers
             // Lưu cart vào Session
             SaveCartSession(cart);
             // Chuyển đến trang hiện thị Cart
-            return RedirectToAction(nameof(ViewCart));
+            return RedirectToAction(nameof(Index));
         }
         
         public IActionResult ViewCart()
         {
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
             return View(GetCartItems());
         }
         
@@ -174,6 +165,43 @@ namespace NotUseAuto.Controllers
             ViewBag.Address = currentUser.Address;
             ViewBag.Dob = currentUser.DoB;
             return View(currentUser);
+        }
+<<<<<<< HEAD
+        public IActionResult Checkout()
+        {
+            return View();
+=======
+        [HttpPost]
+        public IActionResult Search(string search)
+        {
+            var products = context.Product.Where(p => p.Name.Contains(search)).ToList();
+            var categories = context.Category.ToList();
+            ViewBag.Categories = categories;
+            TempData["search"] = search;
+
+            return View("Index", products);
+        }
+
+
+        public IActionResult UserView()
+        {
+            var categories = context.Category.ToList();
+            ViewBag.Categories = categories;
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+
+            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            string currentUserId = claims.Value;
+            ApplicationUser currentUser = (ApplicationUser)context.Users.FirstOrDefault(x => x.Id == currentUserId);
+
+            ViewBag.Img = currentUser.Image;
+            ViewBag.Id = currentUser.Id;
+            ViewBag.Email = currentUser.Email;
+            ViewBag.UserName = currentUser.UserName;
+            ViewBag.Fullname = currentUser.FullName;
+            ViewBag.Address = currentUser.Address;
+            ViewBag.Dob = currentUser.DoB;
+            return View(currentUser);
+>>>>>>> ecf77274b4792754bbe2d7b48a275f77bac3b791
         }
     }
 }

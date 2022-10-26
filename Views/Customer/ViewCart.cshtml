@@ -34,18 +34,19 @@
                 <td><input asp-for="@cartitem.quantity" id="@($"quantity-{cartitem.product.Id}")" readonly="readonly" /></td>
                    <td>@(thanhtien.ToString("n0"))</td>
                    <td>
-                      <button class="btn btn-success updatecartitem" 
-                            data-productid="@cartitem.product.Id">Cập nhật
-                      </button>
+                     
                     <a asp-Controller="Customer" asp-action="RemoveCart" asp-route-productid="@cartitem.product.Id"
                 class="btn btn-danger">Xóa</a>
                    </td>
+                   
                 </tr>
         }
           <tr>
               <td colspan="4" class="text-right">Tổng tiền</td>
               <td>@(total.ToString("n0"))</td>
               <td></td>
+            <td>
+            <td><a type="submit" asp-controller="Customer" asp-action="Checkout">Make order</a></td>
           </tr>
       </table>
 
