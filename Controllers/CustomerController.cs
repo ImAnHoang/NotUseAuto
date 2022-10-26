@@ -96,7 +96,7 @@ namespace NotUseAuto.Controllers
             // Lưu cart vào Session
             SaveCartSession(cart);
             // Chuyển đến trang hiện thị Cart
-            return RedirectToAction(nameof(ViewCart));
+            return RedirectToAction(nameof(Index));
         }
         
         public IActionResult ViewCart()
@@ -133,6 +133,10 @@ namespace NotUseAuto.Controllers
 
             SaveCartSession(cart);
             return RedirectToAction(nameof(ViewCart));
+        }
+        public IActionResult Checkout()
+        {
+            return View();
         }
     }
 }
