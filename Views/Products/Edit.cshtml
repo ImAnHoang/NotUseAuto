@@ -10,7 +10,7 @@
     <div class="form-group mb-3">
         <label asp-for="Name"></label>
         <input asp-for="Name" class="form-control" id="validationCustom01"
-             required>
+               required>
         <span asp-validation-for="Name" class="text-danger"></span>
         <div class="valid-feedback">
             Looks good!
@@ -20,7 +20,7 @@
         <label asp-for="Price"></label>
         <input asp-for="Price" class="form-control" id="validationCustom02"
                required>
-               <span asp-validation-for="Price" class="text-danger"></span>
+        <span asp-validation-for="Price" class="text-danger"></span>
         <div class="valid-feedback">
             Looks good!
         </div>
@@ -38,7 +38,7 @@
         <label asp-for="Description"></label>
         <input asp-for="Description" class="form-control" id="validationCustom04"
                required>
-               <span asp-validation-for="Description" class="text-danger"></span>
+        <span asp-validation-for="Description" class="text-danger"></span>
         <div class="valid-feedback">
             Looks good!
         </div>
@@ -54,12 +54,15 @@
     </div>
     <div class="form-group mb-3">
         <label asp-for="Category"></label>
-        <select asp-for="CategoryId" class="form-control" >
+        <select asp-for="CategoryId" class="form-control">
             <option value="0">Please select 1 category</option>
             @{
                 foreach (var item in ViewBag.Categories)
                 {
-                    <option value="@item.Id">@item.Name</option>
+                    if (item.Status == "Active")
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
                 }
             }
 
@@ -72,7 +75,7 @@
     <a asp-action="Index" class="btn btn-danger" type="button" style="border-radius:25px; margin-left:10px">Back to List</a>
 </form>
 
-    
+
 
 
 @section Scripts {

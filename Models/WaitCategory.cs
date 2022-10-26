@@ -13,6 +13,9 @@ namespace NotUseAuto.Models
         [Required]
         public string Description { get; set; }
 
+        [Required]
+        public string Status { get; set; }
+
         public ICollection<Product> Products { get; set; }
     }
 }
