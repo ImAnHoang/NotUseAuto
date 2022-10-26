@@ -23,7 +23,7 @@ namespace NotUseAuto.Controllers
 
         }
         protected UserManager<ApplicationUser> UserManager { get; set; }
-        [Route("/")]
+        [Route("/admin")]
         public IActionResult Index()
         {
             var products = context.Product.ToList();
@@ -48,7 +48,7 @@ namespace NotUseAuto.Controllers
             {
                 context.Product.Add(product);
                 context.SaveChanges();
-                return Redirect("/");
+                return Redirect("/admin");
             }
             return View();
         }
@@ -75,7 +75,7 @@ namespace NotUseAuto.Controllers
             {
                 context.Product.Update(product);
                 context.SaveChanges();
-                return Redirect("/");
+                return Redirect("/admin");
 
             }
             return View();
@@ -92,7 +92,7 @@ namespace NotUseAuto.Controllers
         {
             context.Product.Remove(product);
             context.SaveChanges();
-            return Redirect("/");
+            return Redirect("/admin");
         }
         public   IActionResult UserView()
         {

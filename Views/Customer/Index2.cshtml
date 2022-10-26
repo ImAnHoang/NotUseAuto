@@ -3,94 +3,7 @@
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
     ViewData["Title"] = "Page Title";
 }
-<div class="navbar-custom topnav-navbar topnav-navbar-dark" style="position: sticky">
 
-    <div class="container-fluid">
-
-        <!-- LOGO -->
-        <a asp-controller="Customer" asp-action="Index" class="topnav-logo">
-            <span class="topnav-logo-lg">
-                <img src="~/images/onepiece.png" alt="logo" height="40px">
-            </span>
-            <span class="topnav-logo-sm">
-                <img src="~/images/onepiece.png" alt="" height="40px">
-            </span>
-        </a>
-        <ul class="list-unstyled topbar-right-menu float-right mb-0">
-            <li class="dropdown notification-list d-lg-none show">
-                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="false" aria-expanded="true">
-                    <i class="dripicons-search noti-icon"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0 show"
-                     style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(10px, 70px, 0px);"
-                     x-placement="bottom-start">
-                    <form class="p-3">
-                        <input type="text" class="form-control" placeholder="Search ..."
-                               aria-label="Recipient's username" name="petname">
-                    </form>
-                </div>
-            </li>
-        </ul>
-        <div class="app-search dropdown">
-            <form action="" method="get">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search..." id="top-search"
-                           style="border-radius: 15px; margin-right: 15px" name="petname">
-                    <span class="mdi mdi-magnify search-icon"></span>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit" style="border-radius: 15px">Search</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <ul class="list-unstyled topbar-right-menu float-left mb-0">
-            <li class="dropdown notification-list topbar-dropdown">
-                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
-                   aria-haspopup="false" aria-expanded="false">
-                    <i class="uil-github"></i>
-                    <span class="align-middle d-none d-sm-inline-block" style="font-size: 17px">Category</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu">
-                    <!-- item-->
-                   @* @foreach(var item in ViewBag.Categories)
-                    {
-                        <a asp-controller="Customer" asp-action="Index2" asp-route-Id="@item.Id" class="dropdown-item notify-item">
-                            
-                            <span class="align-middle">@item.Name</span>
-                        </a>
-                    }*@
-                        
-                    
-                   
-                </div>
-
-            </li>
-        </ul>
-        <ul class="list-unstyled topbar-right-menu float-right mb-0">
-            <li class="dropdown notification-list topbar-dropdown">
-                <a href="" class="nav-link " role="button" style="font-size: 17px; margin: 0 15px"><i class="dripicons-location"></i> About Us</a>
-            </li>
-            <li class="dropdown notification-list topbar-dropdown">
-                <a href="" class="nav-link dropdown-toggle arrow-none" role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-bookshelf"></i> Tips</a>
-            </li>
-            <li class="dropdown notification-list topbar-dropdown">
-                <a href="" class="nav-link dropdown-toggle arrow-none"
-                   role="button" style="font-size: 17px; margin: 0 15px"><i class="mdi mdi-dog"></i> Gallery</a>
-            </li>
-            <li class="dropdown notification-list topbar-dropdown">
-                <a href="" class="nav-link dropdown-toggle arrow-none"
-                   role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-registered-trademark"></i> Register</a>
-            </li>
-            <li class="dropdown notification-list topbar-dropdown">
-                <a asp-area="Identity" asp-page="/Account/Login" class="nav-link dropdown-toggle arrow-none"
-                   role="button" style="font-size: 17px; margin: 0 15px"><i class=" mdi mdi-registered-trademark"></i> Login</a>
-            </li>
-        </ul>
-
-
-    </div>
-</div>
 <div id="carouselExampleControls" class="carousel slide "
      data-ride="carousel" style="height: 500px">
     <div class="carousel-inner" role="listbox" style="height: 100%; width: 100%">
@@ -136,7 +49,7 @@
                                     <div class="card-body position-relative" style="padding-left: unset; padding-right: unset; margin-bottom: 9px ">
                                         <!-- project title-->
                                         <h4 class="mt-0">
-                                            <a asp-controller="Products" asp-action="Details">
+                                            <a asp-controller="Customer" asp-action="Details" asp-route-id=@item.Id>
                                                <class="text-title">@item.Name
 
                                                </a>
