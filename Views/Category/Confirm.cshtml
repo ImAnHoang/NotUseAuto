@@ -14,6 +14,9 @@
 
 <form asp-controller="Category" asp-action="Delete" method="post">
     <input type="hidden" asp-for="Id" class="form-control" />
+    <input type="hidden" asp-for="Name" class="form-control" />
+    <input type="hidden" asp-for="Description" class="form-control" />
+    <input type="hidden" asp-for="Status" class="form-control" />
     <h4>Name: @Model.Name</h4>
     <h4>Description: @Model.Description</h4>
     <div class="form-group">

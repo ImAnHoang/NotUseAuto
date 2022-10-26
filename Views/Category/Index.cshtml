@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Categories
+<h1>
+    Categories
     <a asp-controller="Category" asp-action="Create" class="btn btn-secondarys button-add" type="button"> <i class="fa-solid fa-plus icon-plus" style="padding-top: 10px"></i></a>
 </h1>
 
@@ -14,12 +15,13 @@
             <th>
                 Category ID
             </th>
-            <th>Name
+            <th>
+                Name
             </th>
             <th>
-                 Description
+                Description
             </th>
-            <th>Action</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -32,15 +34,52 @@
                 <td>
                     @item.Name
                 </td>
-              
+
                 <td>
                     @item.Description
                 </td>
+                @if (item.Status == "Pending")
+                {
+                    <td>
 
-                <td class="table-action">
-                    <a asp-controller="Category" asp-action="Edit" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-square-edit-outline "></i></a>
-                    <a asp-controller="Category" asp-action="Confirm" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-delete"></i></a>
-                </td>
+                        <span class="badge badge-warning">@item.Status</span>
+
+                    </td>
+                }
+                else if (item.Status == "Active")
+                {
+                    <td>
+
+                        <span class="badge badge-primary">@item.Status</span>
+
+                    </td>
+                }
+                else
+                {
+                    <td>
+
+                        <span class="badge badge-danger">@item.Status</span>
+
+                    </td>
+                }
+
+                @if (item.Status == "Pending" || item.Status == "Reject")
+                {
+                    <td class="table-action">
+
+                        <a asp-controller="Category" asp-action="Confirm" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-delete"></i></a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-controller="Category" asp-action="Edit" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-square-edit-outline "></i></a>
+                        <a asp-controller="Category" asp-action="Confirm" class="action-icon" asp-route-id="@item.Id"> <i class="mdi mdi-delete"></i></a>
+                    </td>
+
+                }
+
+
             </tr>
         }
     </tbody>

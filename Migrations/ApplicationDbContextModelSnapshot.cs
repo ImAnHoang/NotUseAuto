@@ -49,16 +49,23 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "f7acc68c-1e4a-4543-b7d3-d94d16ef749f",
+                            ConcurrencyStamp = "8a5f2b08-ae25-459f-b1fa-9d0545a5cbe5",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "67daaa76-d59e-4bb9-bc46-939525a1a183",
+                            ConcurrencyStamp = "4efd18c7-d600-4def-a8ca-b1357ac3d589",
                             Name = "Customer",
                             NormalizedName = "Customer"
+                        },
+                        new
+                        {
+                            Id = "O",
+                            ConcurrencyStamp = "10da1bc5-f4c7-431c-8724-60507af5ed38",
+                            Name = "Owner",
+                            NormalizedName = "Owner"
                         });
                 });
 
@@ -234,6 +241,21 @@ namespace NotUseAuto.Migrations
                         {
                             UserId = "3",
                             RoleId = "B"
+                        },
+                        new
+                        {
+                            UserId = "5",
+                            RoleId = "O"
+                        },
+                        new
+                        {
+                            UserId = "6",
+                            RoleId = "O"
+                        },
+                        new
+                        {
+                            UserId = "4",
+                            RoleId = "A"
                         });
                 });
 
@@ -273,6 +295,10 @@ namespace NotUseAuto.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Category");
@@ -282,37 +308,43 @@ namespace NotUseAuto.Migrations
                         {
                             Id = 1,
                             Description = "Action",
-                            Name = "Action"
+                            Name = "Action",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 2,
                             Description = "Anime",
-                            Name = "Anime"
+                            Name = "Anime",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 3,
                             Description = "Fantasy",
-                            Name = "Fantasy"
+                            Name = "Fantasy",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 4,
                             Description = "Adventure",
-                            Name = "Adventure"
+                            Name = "Adventure",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 5,
                             Description = "Magic",
-                            Name = "Magic"
+                            Name = "Magic",
+                            Status = "Active"
                         },
                         new
                         {
                             Id = 6,
                             Description = "Drama",
-                            Name = "Drama"
+                            Name = "Drama",
+                            Status = "Active"
                         });
                 });
 
@@ -586,6 +618,10 @@ namespace NotUseAuto.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("WaitCategory");
@@ -614,14 +650,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8001e2e2-bf53-4d73-b687-c50c3815dda9",
+                            ConcurrencyStamp = "56f28457-8b1d-4632-9c16-f2f3a669ab36",
                             Email = "hoanghip108@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "hoanghip108@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHbyzUqPf7e/yMapGA/u/JwIFym9tirAKQJilrk6Ms9oOkFfThhgIs+cw3LC6yuyTw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJdp10Oa6EYDEy44TB93qukSk1VBax53aDNNBfLYJP9F7FCc1S6ry0fRt6lwDlSXrA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4df1bbb6-6850-4849-8cec-3635ea321f54",
+                            SecurityStamp = "384f759e-65fa-4b53-89e6-251b83a37de5",
                             TwoFactorEnabled = false,
                             UserName = "hoanghip108@gmail.com",
                             Address = "Thái Nguyên",
@@ -633,14 +669,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3439c549-a84d-48b9-8ce4-cc543be51bff",
+                            ConcurrencyStamp = "0a34db5b-13b3-4c53-9d03-8c7b8b0b2e73",
                             Email = "customer@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBb1pvQm3zMEYgizG5/ERl2bgbugcVC0kGveJJHVxbRsA4aWfNBoob5XYM5IYVC7iQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAR8OY4lYF32Fh3152RMOjoZYJvTn3PPw2BR+ff0tNQLTIvLu7fhkSV2kM5O/LFT1A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "635daf0e-5db5-4653-aa65-f5bb13d4d8c2",
+                            SecurityStamp = "7137fd5f-a8f7-43bd-9431-734528eb0b44",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com",
                             Address = "Phú Thọ",
@@ -652,19 +688,76 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eaa3d06e-374f-400e-88ca-eb5d1481bf9e",
+                            ConcurrencyStamp = "774b492e-cc85-4dc0-99c9-fb44483d378d",
                             Email = "admin@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMLIhjM0NYH0I2OEpL6dUsJiVpjs9m1KGqDNpaFI+t31fDaezuUXPuAfFacm//v6Yw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO3WQJfD5k6L/A5ZY16ggIaSK9GCz5BeuB55t0TKxnv1pYpUfhG8/UbAunuux4FdMw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e09a433f-a01f-4000-b04a-f7a7fb820bc1",
+                            SecurityStamp = "69ddc1d3-03c0-40f8-b095-0e1afc741085",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com",
                             Address = "Hà Nội",
                             DoB = "2002/08/10",
                             FullName = "Trọng Đạt",
+                            Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
+                        },
+                        new
+                        {
+                            Id = "4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "42e5ce43-ce0a-4a6e-87f8-7e28533d4b5d",
+                            Email = "quanghuy@fpt.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "quanghuy@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGngEoN1lErEmJ4i/CqpBClYhmUMEZ5UZVnKRmKAiGSKt14q7W/M/JDObiqQZOkqkw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b78b478e-a004-43f8-98ac-84cee8c65316",
+                            TwoFactorEnabled = false,
+                            UserName = "quanghuy@fpt.com",
+                            Address = "Hà Nội",
+                            DoB = "2002/02/18",
+                            FullName = "Dang Quang Huy",
+                            Image = "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ae22da0c-4a78-489f-a69b-a818068face7",
+                            Email = "owner1@fpt.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "owner1@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDtUyjz3novLDtkBDfzUv/fQhBqjy5cNHmKdUF+7jTkS9w+CGb2IPGuE+X6/4WlsLw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "61ce0fdd-0f1c-4264-92b1-95d8071db16b",
+                            TwoFactorEnabled = false,
+                            UserName = "owner1@fpt.com",
+                            Address = "Phú Thọ",
+                            DoB = "2002/08/10",
+                            FullName = "Lan Phuong",
+                            Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
+                        },
+                        new
+                        {
+                            Id = "6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "e8de1de0-b644-4095-b14f-d65e606ae720",
+                            Email = "owner2@fpt.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "owner2@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB6YOJaZyCMXl304JvcsrY0Ome9QYDHB3uz1MD2iU/f/Px3B7EskYxMt6+bwxBEB7A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "799fa4da-52bc-45e7-8d1c-13e02210ef2c",
+                            TwoFactorEnabled = false,
+                            UserName = "owner2@fpt.com",
+                            Address = "Phú Thọ",
+                            DoB = "2002/08/10",
+                            FullName = "Truc My",
                             Image = "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png"
                         });
                 });

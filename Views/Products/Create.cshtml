@@ -40,12 +40,16 @@
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div>
-                <select asp-for="CategoryId" class="form-control" >
+                <select asp-for="CategoryId" class="form-control">
                     <option value="0">Please select 1 category :)</option>
                     @{
                         foreach (var item in ViewBag.Categories)
                         {
-                            <option value="@item.Id">@item.Name</option>
+                            if (item.Status == "Active")
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+
                         }
                     }
 

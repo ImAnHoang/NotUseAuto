@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NotUseAuto.Data;
 using NotUseAuto.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NotUseAuto.Controllers
 {
-    
+
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext context;
@@ -14,11 +15,15 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
+
         public IActionResult Index()
         {
             var categories = context.Category.ToList();
+
+
             return View(categories);
-    
+
+
         }
         [HttpGet]
         public IActionResult Create()
@@ -30,7 +35,20 @@ namespace NotUseAuto.Controllers
         {
             if (ModelState.IsValid)
             {
-                context.WaitCategory.Add(category);
+                var newCategory = new WaitCategory
+                {
+                    Name = category.Name,
+                    Description = category.Description,
+                    Status = "Pending"
+                };
+                var newCategory2 = new Category
+                {
+                    Name = category.Name,
+                    Description = category.Description,
+                    Status = "Pending"
+                };
+                context.Category.Add(newCategory2);
+                context.WaitCategory.Add(newCategory);
                 context.SaveChanges();
                 return Redirect("/Category");
             }
@@ -49,6 +67,9 @@ namespace NotUseAuto.Controllers
         {
             var categories = context.Category.ToList();
             var item = categories.Find(p => p.Id == id);
+
+
+
             return View(item);
         }
         [HttpPost]
@@ -72,9 +93,19 @@ namespace NotUseAuto.Controllers
         [HttpPost]
         public IActionResult Delete(Category category)
         {
+
+            var categories = context.WaitCategory.ToList();
+            var item = categories.Find(p => p.Name == category.Name);
+
+            if (item != null)
+            {
+                context.WaitCategory.Remove(item);
+            }
             context.Category.Remove(category);
+
             context.SaveChanges();
             return Redirect("/Category");
+
         }
 
     }
