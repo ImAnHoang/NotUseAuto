@@ -21,10 +21,12 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
+        [Route("/Admin")]
         public IActionResult Index()
         {
             var categories = context.WaitCategory.ToList();
+            ViewBag.Checks = categories.Count;
             return View(categories);
         }
         [Authorize(Roles = "Administrator")]
@@ -46,6 +48,7 @@ namespace NotUseAuto.Controllers
             context.SaveChanges();
             return Redirect("/Admin");
         }
+        [Authorize(Roles = "Administrator")]
         public IActionResult ListOrder()
         {
             var waitCart = context.WaitCart.ToList();
@@ -133,7 +136,6 @@ namespace NotUseAuto.Controllers
             }
             else
             {
-                //return
                 ViewBag.Error2 = "Old password is not match";
                 return View("Edit", user);
             }

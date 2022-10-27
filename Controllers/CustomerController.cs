@@ -10,7 +10,6 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using System.Security.Claims;
-using System.Security.Cryptography.X509Certificates;
 
 namespace NotUseAuto.Controllers
 {

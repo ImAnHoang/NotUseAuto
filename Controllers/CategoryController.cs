@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NotUseAuto.Data;
 using NotUseAuto.Models;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace NotUseAuto.Controllers
@@ -15,7 +17,7 @@ namespace NotUseAuto.Controllers
             context = dbContext;
 
         }
-
+        [Authorize(Roles = "Owner")]
         public IActionResult Index()
         {
             var categories = context.Category.ToList();
@@ -25,11 +27,13 @@ namespace NotUseAuto.Controllers
 
 
         }
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         public IActionResult Create(WaitCategory category)
         {
@@ -55,6 +59,7 @@ namespace NotUseAuto.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public IActionResult Details(int? id)
         {
@@ -62,6 +67,8 @@ namespace NotUseAuto.Controllers
             var item = categories.Find(p => p.Id == id);
             return View(item);
         }
+
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -72,6 +79,8 @@ namespace NotUseAuto.Controllers
 
             return View(item);
         }
+
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         public IActionResult Update(Category category)
         {
@@ -83,6 +92,8 @@ namespace NotUseAuto.Controllers
             }
             return View();
         }
+
+        [Authorize(Roles = "Owner")]
         [HttpGet]
         public IActionResult Confirm(int? id)
         {
@@ -90,6 +101,8 @@ namespace NotUseAuto.Controllers
             var item = categories.Find(p => p.Id == id);
             return View(item);
         }
+
+        [Authorize(Roles = "Owner")]
         [HttpPost]
         public IActionResult Delete(Category category)
         {
