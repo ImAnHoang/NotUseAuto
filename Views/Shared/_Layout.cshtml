@@ -69,6 +69,13 @@
                                 <span> Categories </span>
                             </a>
                         </li>
+                        <li class="side-nav-title side-nav-item">Apps</li>
+                        <li class="side-nav-item">
+                            <a asp-controller="Admin" asp-action="ListOrder" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> List order </span>
+                            </a>
+                        </li>
                     }
 
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))

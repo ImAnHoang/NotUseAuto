@@ -48,11 +48,13 @@ namespace NotUseAuto.Controllers
             context.SaveChanges();
             return Redirect("/Admin");
         }
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Owner")]
         public IActionResult ListOrder()
         {
-            var waitCart = context.Order.ToList();
-            return View(waitCart);
+            var orders = context.Order.ToList();
+            ViewBag.Users = context.Users.ToList();
+            ViewBag.products = context.Product.ToList();
+            return View(orders);
         }
         [Authorize(Roles = "Administrator")]
         public IActionResult Reject(int? id)
@@ -141,5 +143,6 @@ namespace NotUseAuto.Controllers
             }
 
         }
+        
     }
 }
