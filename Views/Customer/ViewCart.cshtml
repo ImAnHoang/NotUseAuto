@@ -31,10 +31,14 @@
                    <td>@(stt++)</td>
                    <td>@cartitem.product.Name</td>
                    <td>@(cartitem.product.Price.ToString("n0"))</td>
-                <td><input asp-for="@cartitem.Quantity" id="@($"quantity-{cartitem.product.Id}")" readonly="readonly" /></td>
+                <td>
+                    <input asp-for="@cartitem.Quantity" id="@($"quantity-{cartitem.product.Id}")"  /></td>
                    <td>@(thanhtien.ToString("n0"))</td>
                    <td>
-                     
+                    <button class="btn btn-success updatecartitem" type="submit"
+                    data-productid="@cartitem.product.Id" >
+                        Cập nhật
+                    </button>
                     <a asp-Controller="Customer" asp-action="RemoveCart" asp-route-productid="@cartitem.product.Id"
                 class="btn btn-danger">Xóa</a>
                    </td>
@@ -69,3 +73,25 @@ else
         elems[i].addEventListener('click', confirmIt, false);
     }
 </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".updatecartitem").click(function (event) {
+                event.preventDefault();
+                var productid = $(this).attr("data-productid");
+                var quantity = $("#quantity-" + productid).val();
+                $.ajax({
+                    type: "POST",
+                url: "@Url.RouteUrl("UpdateCart")",
+                    data: {
+                        Id: productid,
+                        Quantity: quantity
+                    },
+                    success: function (result) {
+                        window.location.href = "@Url.RouteUrl("Index")";
+                    }
+                });
+            });
+        });
+    </script>
+      

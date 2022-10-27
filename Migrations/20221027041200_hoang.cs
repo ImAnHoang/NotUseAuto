@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NotUseAuto.Migrations
 {
-    public partial class huyasd : Migration
+    public partial class hoang : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -268,9 +268,9 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "27cc7a55-4d2f-4a90-b472-593fa5c466cb", "Administrator", "Administrator" },
-                    { "B", "cdaf27d8-e652-4dae-a08f-96fc45bca23b", "Customer", "Customer" },
-                    { "O", "44799664-5c5f-4dc3-8226-982b52fb04c2", "Owner", "Owner" }
+                    { "A", "dd0451be-37d9-426a-be86-bd4e2591dce3", "Administrator", "Administrator" },
+                    { "B", "77149e5f-3374-48e8-94f7-638a945318eb", "Customer", "Customer" },
+                    { "O", "b86dcfe7-2942-443c-b665-93c7f19a756b", "Owner", "Owner" }
                 });
 
             migrationBuilder.InsertData(
@@ -278,12 +278,12 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Address", "DoB", "FullName", "Image" },
                 values: new object[,]
                 {
-                    { "1", 0, "712c1a05-1b01-4efa-93e1-670b893c33d9", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEAjik3th7h0Bup0woA8s4nKKwRU70HNd2SD5EtJqbZR79lIF6+hypcaFwDr3GgwHPg==", null, false, "b51a1d75-2209-43cc-a4d7-2e97169bbc5a", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
-                    { "3", 0, "28aa8963-e088-4c9e-897d-1b96f5255811", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAENDosCnni8eHBP0FBp4ngCRbDYspVrVg2Myv8E5XQkiinO5v33HUAlelYGVfGtuFuw==", null, false, "9b8753ce-faa6-4c48-8c98-a7d6ae6212d9", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "2", 0, "bfb57712-17db-4697-9411-ec9f641bbc58", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEJPPwPYgrMNFj/fXIHHM9IiF0OM53F9AYxzTy1MlJXElA9zdmlIbI8iGrBdG8kQqgg==", null, false, "bb09d624-694a-47f6-8113-06dc2bd428cf", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "4", 0, "03fde3d8-6fe7-44f7-97d7-5294954e6ca9", "ApplicationUser", "quanghuy@fpt.com", false, false, null, null, "quanghuy@fpt.com", "AQAAAAEAACcQAAAAEGvC/Ok26gWpqvNktC6ItZlPUjIGEN8fBCy7HbSk25Ehgy3r9EnyLwnmpgmluUcmZA==", null, false, "895a4b24-0324-4187-b55b-7addc9a98b53", false, "quanghuy@fpt.com", "Hà Nội", "2002/02/18", "Dang Quang Huy", "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg" },
-                    { "5", 0, "f1ef5e5c-c8cd-40a8-b8ff-f294c92d6268", "ApplicationUser", "owner1@fpt.com", false, false, null, null, "owner1@fpt.com", "AQAAAAEAACcQAAAAEIS1Yrpf4fV9nf2KjSGqLOVeKdyVFBF1ws7FtRVGB27FAso4cKALPAM0G4EjNspBeQ==", null, false, "20598610-df54-41ba-a00b-caf89633c85b", false, "owner1@fpt.com", "Phú Thọ", "2002/08/10", "Lan Phuong", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "6", 0, "9270ec7c-63b6-4da8-9ec4-531a2d30e2da", "ApplicationUser", "owner2@fpt.com", false, false, null, null, "owner2@fpt.com", "AQAAAAEAACcQAAAAEDfH9gUsFaU+UmC6DAjVWqCoWEDl1VPXMyoomkE+G4EPy9zhLRw9TlcHQUlNF6T9HQ==", null, false, "a431ac4a-f376-4c60-a48a-8dc5c7f72577", false, "owner2@fpt.com", "Phú Thọ", "2002/08/10", "Truc My", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
+                    { "1", 0, "d83dd8f4-d2d0-4324-ad75-62f116811ed9", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEA3xniCTdovlVU812+MQmgu2j3s1ByvaPPyRTKWAO4temR4WTsjEsIjgixvqbP3xQA==", null, false, "d71563d7-241d-4778-a16c-162a1bf73e30", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
+                    { "3", 0, "cf059470-0c5c-4e39-a7d6-c4a2a42c9cf8", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEHmjNXUz6ol6JxndEKob0dxx6WG3zX+f+Cl3fWdkoF4rOrZphPCsD6wnfvHoZWdu8g==", null, false, "76e51642-f990-462a-a9fb-02728af4d91f", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "2", 0, "37c2d210-1dd8-4230-b5a8-ccc43f4535b9", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEHYV9iNqQBExxIDxA34Tp2Aqt7GTBaiP6CDwAb5lukRMY9mPAwrKwMPdcBSoQYKXgw==", null, false, "ff551319-dd0a-4d48-92a4-46295731ee49", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "4", 0, "fbd94a11-5f8b-4f82-a04b-687f64839e2c", "ApplicationUser", "quanghuy@fpt.com", false, false, null, null, "quanghuy@fpt.com", "AQAAAAEAACcQAAAAEBkej5WPqjrznzKo2N4lyeOMd4kPvoewIB3yQg8alML/o+i8M3cV5MhJsM8J0mUiMQ==", null, false, "59930667-0cf5-4b8c-8298-3dfad545631f", false, "quanghuy@fpt.com", "Hà Nội", "2002/02/18", "Dang Quang Huy", "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg" },
+                    { "5", 0, "7fe6c56c-03da-4e7f-a682-9afc486ccbac", "ApplicationUser", "owner1@fpt.com", false, false, null, null, "owner1@fpt.com", "AQAAAAEAACcQAAAAEL9VpXFhQlYdDtt/3u8CaxTg1Hm7miOnJD4WjLyrqZi18Tv3LQS+EEB7RDlyYwvOgQ==", null, false, "e2ce1240-f393-4b84-a405-fde5e0a08881", false, "owner1@fpt.com", "Phú Thọ", "2002/08/10", "Lan Phuong", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "6", 0, "6919a80f-3fbe-44dc-96f2-96fabaf9efaf", "ApplicationUser", "owner2@fpt.com", false, false, null, null, "owner2@fpt.com", "AQAAAAEAACcQAAAAEHa/ARwbn6HNGUOgL+k6RzCXBZmOx84Psh15kAqn6NG8aemTZQcZnxxx2d1bz2C1BA==", null, false, "2cd3e991-640d-4034-b5bc-db41aac1bd69", false, "owner2@fpt.com", "Phú Thọ", "2002/08/10", "Truc My", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
                 });
 
             migrationBuilder.InsertData(

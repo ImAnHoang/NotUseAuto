@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using System.Security.Claims;
+using System;
 
 namespace NotUseAuto.Controllers
 {
@@ -125,7 +126,7 @@ namespace NotUseAuto.Controllers
 
         [Route("/updatecart", Name = "updatecart")]
         [HttpPost]
-        public IActionResult UpdateCart([FromForm] int productid, [FromForm] int quantity)
+        public IActionResult UpdateCart( int productid, int quantity)
         {
             // Cập nhật Cart thay đổi số lượng quantity ...
             var cart = GetCartItems();
@@ -204,5 +205,17 @@ namespace NotUseAuto.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+        public  IActionResult ViewOrder()
+        {
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            string currentUserId = claims.Value;
+            int UsrID = Int32.Parse(currentUserId);
+            var orders = context.Order.ToList();
+            var FindOrder = context.Order.Where(p => p.UserId.Contains(currentUserId)).ToList();
+            return View("ViewOrder", FindOrder);
+            
+        }
     }
+    
 }
