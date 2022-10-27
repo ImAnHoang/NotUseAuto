@@ -46,6 +46,11 @@ namespace NotUseAuto.Controllers
             context.SaveChanges();
             return Redirect("/Admin");
         }
+        public IActionResult ListOrder()
+        {
+            var waitCart = context.WaitCart.ToList();
+            return View(waitCart);
+        }
         [Authorize(Roles = "Administrator")]
         public IActionResult Reject(int? id)
         {

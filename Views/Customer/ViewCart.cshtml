@@ -46,7 +46,14 @@
               <td>@(total.ToString("n0"))</td>
               <td></td>
             <td>
-            <td><a type="submit" asp-controller="Customer" asp-action="Checkout">Make order</a></td>
+                <form asp-controller="Admin" asp-action="ConfirmOrder">
+                    @foreach (var cartitem in Model)
+                    {
+                        
+                    }
+            <a button type="submit" asp-controller="Customer" asp-action="Checkout">Make order</a>
+                </form>
+            
           </tr>
       </table>
 

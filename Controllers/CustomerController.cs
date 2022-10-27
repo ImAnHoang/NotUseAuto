@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 
 namespace NotUseAuto.Controllers
 {
@@ -68,7 +69,16 @@ namespace NotUseAuto.Controllers
             var productSearch = context.Category.Include(c => c.Products).FirstOrDefault(c => c.Id == id);
             return View(productSearch);
         }
+        [HttpPost]
+        public IActionResult Search(string search)
+        {
+            var products = context.Product.Where(p => p.Name.Contains(search)).ToList();
+            var categories = context.Category.ToList();
+            ViewBag.Categories = categories;
+            TempData["search"] = search;
 
+            return View("Index", products);
+        }
         public IActionResult Details(int? id)
         {
             var products = context.Product.ToList();
@@ -144,23 +154,6 @@ namespace NotUseAuto.Controllers
             SaveCartSession(cart);
             return RedirectToAction(nameof(ViewCart));
         }
-<<<<<<< HEAD
-        public IActionResult Checkout()
-        {
-            return View();
-=======
-        [HttpPost]
-        public IActionResult Search(string search)
-        {
-            var products = context.Product.Where(p => p.Name.Contains(search)).ToList();
-            var categories = context.Category.ToList();
-            ViewBag.Categories = categories;
-            TempData["search"] = search;
-
-            return View("Index", products);
-        }
-
-
         public IActionResult UserView()
         {
             var categories = context.Category.ToList();
@@ -179,7 +172,22 @@ namespace NotUseAuto.Controllers
             ViewBag.Address = currentUser.Address;
             ViewBag.Dob = currentUser.DoB;
             return View(currentUser);
->>>>>>> ecf77274b4792754bbe2d7b48a275f77bac3b791
+        }
+        public IActionResult Checkout()
+        {
+
+            WaitCart wait = new WaitCart()
+            {
+                cartItems = GetCartItems()
+            };
+            if (wait != null)
+            {
+                context.WaitCart.Add(wait);
+                context.Entry(wait).State = EntityState.Added;
+                context.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

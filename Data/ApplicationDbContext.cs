@@ -19,10 +19,11 @@ namespace NotUseAuto.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<WaitCategory> WaitCategory { get; set; }
         public DbSet<WaitCart> WaitCart { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<WaitCart>().OwnsOne(x => x.CartItem);
+            
             base.OnModelCreating(builder);
 
             SeedUser(builder);
@@ -35,6 +36,7 @@ namespace NotUseAuto.Data
             
             
         }
+        
         private void Seed(ModelBuilder builder)
         {
             builder.Entity<Category>().HasData(
