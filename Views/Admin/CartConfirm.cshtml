@@ -10,13 +10,13 @@
     </tr>
     @foreach (var cartitem in Model)
     {
-        var thanhtien = cartitem.quantity * cartitem.product.Price;
+        var thanhtien = cartitem.Quantity * cartitem.product.Price;
         
 
         <tr>
             <td>@cartitem.product.Name</td>
             <td>@(cartitem.product.Price.ToString("n0"))</td>
-            <td><input asp-for="@cartitem.quantity" id="@($"quantity-{cartitem.product.Id}")" readonly="readonly" /></td>
+            <td><input asp-for="@cartitem.Quantity" id="@($"quantity-{cartitem.product.Id}")" readonly="readonly" /></td>
             <td>@(thanhtien.ToString("n0"))</td>
         </tr>
     }

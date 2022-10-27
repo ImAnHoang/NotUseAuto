@@ -6,7 +6,7 @@ namespace NotUseAuto.Models
 {
     public class Product
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+      
         // properties Id, Name, Price,Quantity,  Description
         public int Id { get; set; }
 

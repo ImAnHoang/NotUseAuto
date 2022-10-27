@@ -49,21 +49,21 @@ namespace NotUseAuto.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "bc3eb62f-2f95-4e17-8e6f-38b58b796a44",
+                            ConcurrencyStamp = "27cc7a55-4d2f-4a90-b472-593fa5c466cb",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "01a3a07f-8c6b-4b1a-a0e7-7604cc35349d",
+                            ConcurrencyStamp = "cdaf27d8-e652-4dae-a08f-96fc45bca23b",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "O",
-                            ConcurrencyStamp = "26475af2-99db-4237-96e0-d98818f0a0b8",
+                            ConcurrencyStamp = "44799664-5c5f-4dc3-8226-982b52fb04c2",
                             Name = "Owner",
                             NormalizedName = "Owner"
                         });
@@ -287,18 +287,21 @@ namespace NotUseAuto.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("WaitCartId")
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WaitCart_ID")
                         .HasColumnType("int");
 
                     b.Property<int?>("productId")
                         .HasColumnType("int");
 
-                    b.Property<int>("quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("WaitCartId");
+                    b.HasIndex("OrderId");
 
                     b.HasIndex("productId");
 
@@ -371,6 +374,33 @@ namespace NotUseAuto.Migrations
                             Name = "Drama",
                             Status = "Active"
                         });
+                });
+
+            modelBuilder.Entity("NotUseAuto.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("NotUseAuto.Models.Product", b =>
@@ -616,21 +646,6 @@ namespace NotUseAuto.Migrations
                         });
                 });
 
-            modelBuilder.Entity("NotUseAuto.Models.WaitCart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WaitCart");
-                });
-
             modelBuilder.Entity("NotUseAuto.Models.WaitCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -678,14 +693,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "287b73f3-f447-4e40-9e1f-62109f0f0985",
+                            ConcurrencyStamp = "712c1a05-1b01-4efa-93e1-670b893c33d9",
                             Email = "hoanghip108@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "hoanghip108@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELe7b/lONadx3DFAKA2hC3m4VMyblzXOMwB0tjALnvUDjcB1Yr+kC2aFWz8xxU3UCg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAjik3th7h0Bup0woA8s4nKKwRU70HNd2SD5EtJqbZR79lIF6+hypcaFwDr3GgwHPg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f8175cd6-abf1-4c39-90fa-9c3b420129ea",
+                            SecurityStamp = "b51a1d75-2209-43cc-a4d7-2e97169bbc5a",
                             TwoFactorEnabled = false,
                             UserName = "hoanghip108@gmail.com",
                             Address = "Thái Nguyên",
@@ -697,14 +712,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0fab6a1a-0fa1-4439-a29d-1800d14db5b5",
+                            ConcurrencyStamp = "28aa8963-e088-4c9e-897d-1b96f5255811",
                             Email = "customer@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGma0zMDBs32u+ZN+nQnMlwyr0ORrheMlRSyY07+A/t6BAdntyPNHBgITB4KlqV5TA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENDosCnni8eHBP0FBp4ngCRbDYspVrVg2Myv8E5XQkiinO5v33HUAlelYGVfGtuFuw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4c0b937a-6cca-4c4b-9f01-0ffc4cb962a0",
+                            SecurityStamp = "9b8753ce-faa6-4c48-8c98-a7d6ae6212d9",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com",
                             Address = "Phú Thọ",
@@ -716,14 +731,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "78448948-7d2e-4490-90c2-e0ff85ba918b",
+                            ConcurrencyStamp = "bfb57712-17db-4697-9411-ec9f641bbc58",
                             Email = "admin@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPjLfXydaiKIqvrtfYXiS0x4KbJmWJhKCS1ZGDElpRpc9l2sIBCQN0hCp8r2cWWkPw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJPPwPYgrMNFj/fXIHHM9IiF0OM53F9AYxzTy1MlJXElA9zdmlIbI8iGrBdG8kQqgg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "04f1a9e8-954a-48a6-8e8f-b29de904e17e",
+                            SecurityStamp = "bb09d624-694a-47f6-8113-06dc2bd428cf",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com",
                             Address = "Hà Nội",
@@ -735,14 +750,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a5c7403b-bc47-4d26-9a59-1f8cc68ed4f9",
+                            ConcurrencyStamp = "03fde3d8-6fe7-44f7-97d7-5294954e6ca9",
                             Email = "quanghuy@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "quanghuy@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBDOc2BP7yOnfO/OT37RBklD3EtGjN1pBUtibGeI5Gj6eu/IFnnPkZJiuxZGz3FKIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGvC/Ok26gWpqvNktC6ItZlPUjIGEN8fBCy7HbSk25Ehgy3r9EnyLwnmpgmluUcmZA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "45bfe07d-d8d3-4877-a2a7-212f9e6d1b63",
+                            SecurityStamp = "895a4b24-0324-4187-b55b-7addc9a98b53",
                             TwoFactorEnabled = false,
                             UserName = "quanghuy@fpt.com",
                             Address = "Hà Nội",
@@ -754,14 +769,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "26fb77f6-c606-4bd5-b8f5-2a4fe81629a2",
+                            ConcurrencyStamp = "f1ef5e5c-c8cd-40a8-b8ff-f294c92d6268",
                             Email = "owner1@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "owner1@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAENANHI6xKFi9SXa5a2IvLHGy55lM4e7KbssgQoHmQj1nN1RwCb1ZK9+qM/U6pBE1kw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIS1Yrpf4fV9nf2KjSGqLOVeKdyVFBF1ws7FtRVGB27FAso4cKALPAM0G4EjNspBeQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e06ec072-b71b-4d56-81c7-32979fe24a20",
+                            SecurityStamp = "20598610-df54-41ba-a00b-caf89633c85b",
                             TwoFactorEnabled = false,
                             UserName = "owner1@fpt.com",
                             Address = "Phú Thọ",
@@ -773,14 +788,14 @@ namespace NotUseAuto.Migrations
                         {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2c9ab29f-52f7-4d38-8774-5d2ceccae68d",
+                            ConcurrencyStamp = "9270ec7c-63b6-4da8-9ec4-531a2d30e2da",
                             Email = "owner2@fpt.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "owner2@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEVcij/5SxPg6Bmyf4nlUU6E6CfwjVuRr50YkCrBfYOZSKLqUCp+uK+q4aGhP02Rog==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDfH9gUsFaU+UmC6DAjVWqCoWEDl1VPXMyoomkE+G4EPy9zhLRw9TlcHQUlNF6T9HQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "543bc34d-3dcd-40c3-8672-40e3aa67fcc1",
+                            SecurityStamp = "a431ac4a-f376-4c60-a48a-8dc5c7f72577",
                             TwoFactorEnabled = false,
                             UserName = "owner2@fpt.com",
                             Address = "Phú Thọ",
@@ -843,9 +858,9 @@ namespace NotUseAuto.Migrations
 
             modelBuilder.Entity("NotUseAuto.Models.CartItem", b =>
                 {
-                    b.HasOne("NotUseAuto.Models.WaitCart", null)
+                    b.HasOne("NotUseAuto.Models.Order", null)
                         .WithMany("cartItems")
-                        .HasForeignKey("WaitCartId");
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("NotUseAuto.Models.Product", "product")
                         .WithMany()

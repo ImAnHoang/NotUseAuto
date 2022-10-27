@@ -51,7 +51,7 @@ namespace NotUseAuto.Controllers
         [Authorize(Roles = "Administrator")]
         public IActionResult ListOrder()
         {
-            var waitCart = context.WaitCart.ToList();
+            var waitCart = context.Order.ToList();
             return View(waitCart);
         }
         [Authorize(Roles = "Administrator")]

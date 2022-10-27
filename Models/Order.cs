@@ -4,12 +4,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NotUseAuto.Models
 {
-    public class WaitCart
+    public class Order
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string UserId { get; set; }
+
+        public int ProductId { get; set; }
+
+        public int Quantity { get; set; }
+        public double Price { get; set; }
+        
+        public double TotalPrice { get; set; }
         public ICollection<CartItem> cartItems { get; set; }
 
     }

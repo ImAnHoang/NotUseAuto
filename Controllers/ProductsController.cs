@@ -54,7 +54,7 @@ namespace NotUseAuto.Controllers
                 TempData["Message"] = "Create product successfully";
                 context.Product.Add(product);
                 context.SaveChanges();
-                return Redirect("/admin");
+                return Redirect("/products");
             }
             return View();
         }
@@ -85,7 +85,7 @@ namespace NotUseAuto.Controllers
                 TempData["Message"] = "Update product successfully";
                 context.Product.Update(product);
                 context.SaveChanges();
-                return Redirect("/admin");
+                return Redirect("/products");
 
             }
             return View();
@@ -105,7 +105,7 @@ namespace NotUseAuto.Controllers
             TempData["Message"] = "Delete product successfully";
             context.Product.Remove(product);
             context.SaveChanges();
-            return Redirect("/admin");
+            return Redirect("/products");
         }
 
         public IActionResult UserView()

@@ -14,7 +14,7 @@ using System.Security.Claims;
 namespace NotUseAuto.Controllers
 {
 
-   
+
     public class CustomerController : Controller
     {
 
@@ -102,12 +102,12 @@ namespace NotUseAuto.Controllers
             if (cartitem != null)
             {
                 // Đã tồn tại, tăng thêm 1
-                cartitem.quantity++;
+                cartitem.Quantity++;
             }
             else
             {
                 //  Thêm mới
-                cart.Add(new CartItem() { quantity = 1, product = product });
+                cart.Add(new CartItem() { Quantity = 1, product = product });
             }
 
             // Lưu cart vào Session
@@ -115,14 +115,14 @@ namespace NotUseAuto.Controllers
             // Chuyển đến trang hiện thị Cart
             return RedirectToAction(nameof(Index));
         }
-        
+
         public IActionResult ViewCart()
         {
             var categories = context.Category.ToList();
             ViewBag.Categories = categories;
             return View(GetCartItems());
         }
-        
+
         [Route("/updatecart", Name = "updatecart")]
         [HttpPost]
         public IActionResult UpdateCart([FromForm] int productid, [FromForm] int quantity)
@@ -133,7 +133,7 @@ namespace NotUseAuto.Controllers
             if (cartitem != null)
             {
                 // Đã tồn tại, tăng thêm 1
-                cartitem.quantity = quantity;
+                cartitem.Quantity = quantity;
             }
             SaveCartSession(cart);
             // Trả về mã thành công (không có nội dung gì - chỉ để Ajax gọi)
@@ -174,22 +174,35 @@ namespace NotUseAuto.Controllers
         }
         public IActionResult Checkout()
         {
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            string currentUserId = claims.Value;
 
-            /*WaitCart wait = new WaitCart()
+            // caculate total price
+            var cart = GetCartItems();
+            double total = 0;
+            foreach (var item in cart)
             {
-                cartItems = GetCartItems()
-            };
-            if (wait != null)
+                total += (double)(item.product.Price * item.Quantity);
+            }
+
+            for (int i = 0; i < cart.Count; i++)
             {
-                context.WaitCart.Add(wait);
-                context.Entry(wait).State = EntityState.Added;
+                var order = new Order()
+                {
+                    UserId = currentUserId,
+                    ProductId = cart[i].product.Id,
+                    Price = (int) cart[i].product.Price,
+                    Quantity = cart[i].Quantity,
+                    TotalPrice = total,
+
+                };
+                context.Order.Add(order);
                 context.SaveChanges();
             }
-            */
             ClearCart();
             return RedirectToAction(nameof(Index));
-            
+
         }
     }
 }
-    

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NotUseAuto.Migrations
 {
-    public partial class hoang : Migration
+    public partial class huyasd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -67,16 +67,20 @@ namespace NotUseAuto.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "WaitCart",
+                name: "Order",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
+                    ProductId = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    Price = table.Column<double>(nullable: false),
+                    TotalPrice = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WaitCart", x => x.Id);
+                    table.PrimaryKey("PK_Order", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,17 +241,18 @@ namespace NotUseAuto.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    quantity = table.Column<int>(nullable: false),
+                    Quantity = table.Column<int>(nullable: false),
+                    WaitCart_ID = table.Column<int>(nullable: false),
                     productId = table.Column<int>(nullable: true),
-                    WaitCartId = table.Column<int>(nullable: true)
+                    OrderId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CartItem", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CartItem_WaitCart_WaitCartId",
-                        column: x => x.WaitCartId,
-                        principalTable: "WaitCart",
+                        name: "FK_CartItem_Order_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Order",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -263,9 +268,9 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "bc3eb62f-2f95-4e17-8e6f-38b58b796a44", "Administrator", "Administrator" },
-                    { "B", "01a3a07f-8c6b-4b1a-a0e7-7604cc35349d", "Customer", "Customer" },
-                    { "O", "26475af2-99db-4237-96e0-d98818f0a0b8", "Owner", "Owner" }
+                    { "A", "27cc7a55-4d2f-4a90-b472-593fa5c466cb", "Administrator", "Administrator" },
+                    { "B", "cdaf27d8-e652-4dae-a08f-96fc45bca23b", "Customer", "Customer" },
+                    { "O", "44799664-5c5f-4dc3-8226-982b52fb04c2", "Owner", "Owner" }
                 });
 
             migrationBuilder.InsertData(
@@ -273,12 +278,12 @@ namespace NotUseAuto.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Address", "DoB", "FullName", "Image" },
                 values: new object[,]
                 {
-                    { "1", 0, "287b73f3-f447-4e40-9e1f-62109f0f0985", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAELe7b/lONadx3DFAKA2hC3m4VMyblzXOMwB0tjALnvUDjcB1Yr+kC2aFWz8xxU3UCg==", null, false, "f8175cd6-abf1-4c39-90fa-9c3b420129ea", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
-                    { "3", 0, "0fab6a1a-0fa1-4439-a29d-1800d14db5b5", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEGma0zMDBs32u+ZN+nQnMlwyr0ORrheMlRSyY07+A/t6BAdntyPNHBgITB4KlqV5TA==", null, false, "4c0b937a-6cca-4c4b-9f01-0ffc4cb962a0", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "2", 0, "78448948-7d2e-4490-90c2-e0ff85ba918b", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEPjLfXydaiKIqvrtfYXiS0x4KbJmWJhKCS1ZGDElpRpc9l2sIBCQN0hCp8r2cWWkPw==", null, false, "04f1a9e8-954a-48a6-8e8f-b29de904e17e", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "4", 0, "a5c7403b-bc47-4d26-9a59-1f8cc68ed4f9", "ApplicationUser", "quanghuy@fpt.com", false, false, null, null, "quanghuy@fpt.com", "AQAAAAEAACcQAAAAEBDOc2BP7yOnfO/OT37RBklD3EtGjN1pBUtibGeI5Gj6eu/IFnnPkZJiuxZGz3FKIg==", null, false, "45bfe07d-d8d3-4877-a2a7-212f9e6d1b63", false, "quanghuy@fpt.com", "Hà Nội", "2002/02/18", "Dang Quang Huy", "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg" },
-                    { "5", 0, "26fb77f6-c606-4bd5-b8f5-2a4fe81629a2", "ApplicationUser", "owner1@fpt.com", false, false, null, null, "owner1@fpt.com", "AQAAAAEAACcQAAAAENANHI6xKFi9SXa5a2IvLHGy55lM4e7KbssgQoHmQj1nN1RwCb1ZK9+qM/U6pBE1kw==", null, false, "e06ec072-b71b-4d56-81c7-32979fe24a20", false, "owner1@fpt.com", "Phú Thọ", "2002/08/10", "Lan Phuong", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
-                    { "6", 0, "2c9ab29f-52f7-4d38-8774-5d2ceccae68d", "ApplicationUser", "owner2@fpt.com", false, false, null, null, "owner2@fpt.com", "AQAAAAEAACcQAAAAEEVcij/5SxPg6Bmyf4nlUU6E6CfwjVuRr50YkCrBfYOZSKLqUCp+uK+q4aGhP02Rog==", null, false, "543bc34d-3dcd-40c3-8672-40e3aa67fcc1", false, "owner2@fpt.com", "Phú Thọ", "2002/08/10", "Truc My", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
+                    { "1", 0, "712c1a05-1b01-4efa-93e1-670b893c33d9", "ApplicationUser", "hoanghip108@gmail.com", false, false, null, null, "hoanghip108@gmail.com", "AQAAAAEAACcQAAAAEAjik3th7h0Bup0woA8s4nKKwRU70HNd2SD5EtJqbZR79lIF6+hypcaFwDr3GgwHPg==", null, false, "b51a1d75-2209-43cc-a4d7-2e97169bbc5a", false, "hoanghip108@gmail.com", "Thái Nguyên", "2000/08/10", "Đỗ Nguyễn Huy Hoàng", "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/298710201_3244171855861409_1804411380120781534_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_ohc=dFVC3HbeYfIAX-iPGLL&_nc_ht=scontent.fhan2-3.fna&oh=00_AT98b_w49sQ3jWECKsp8fsD50m1uGc981QkC8y0ES84L-g&oe=635B2C2B" },
+                    { "3", 0, "28aa8963-e088-4c9e-897d-1b96f5255811", "ApplicationUser", "customer@fpt.com", false, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAENDosCnni8eHBP0FBp4ngCRbDYspVrVg2Myv8E5XQkiinO5v33HUAlelYGVfGtuFuw==", null, false, "9b8753ce-faa6-4c48-8c98-a7d6ae6212d9", false, "customer@fpt.com", "Phú Thọ", "2002/08/10", "Huy", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "2", 0, "bfb57712-17db-4697-9411-ec9f641bbc58", "ApplicationUser", "admin@fpt.com", false, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEJPPwPYgrMNFj/fXIHHM9IiF0OM53F9AYxzTy1MlJXElA9zdmlIbI8iGrBdG8kQqgg==", null, false, "bb09d624-694a-47f6-8113-06dc2bd428cf", false, "admin@fpt.com", "Hà Nội", "2002/08/10", "Trọng Đạt", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "4", 0, "03fde3d8-6fe7-44f7-97d7-5294954e6ca9", "ApplicationUser", "quanghuy@fpt.com", false, false, null, null, "quanghuy@fpt.com", "AQAAAAEAACcQAAAAEGvC/Ok26gWpqvNktC6ItZlPUjIGEN8fBCy7HbSk25Ehgy3r9EnyLwnmpgmluUcmZA==", null, false, "895a4b24-0324-4187-b55b-7addc9a98b53", false, "quanghuy@fpt.com", "Hà Nội", "2002/02/18", "Dang Quang Huy", "https://www.alotintuc.com/wp-content/uploads/2021/07/Untitled-Capture2244-scaled-e1626766063525.jpg" },
+                    { "5", 0, "f1ef5e5c-c8cd-40a8-b8ff-f294c92d6268", "ApplicationUser", "owner1@fpt.com", false, false, null, null, "owner1@fpt.com", "AQAAAAEAACcQAAAAEIS1Yrpf4fV9nf2KjSGqLOVeKdyVFBF1ws7FtRVGB27FAso4cKALPAM0G4EjNspBeQ==", null, false, "20598610-df54-41ba-a00b-caf89633c85b", false, "owner1@fpt.com", "Phú Thọ", "2002/08/10", "Lan Phuong", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" },
+                    { "6", 0, "9270ec7c-63b6-4da8-9ec4-531a2d30e2da", "ApplicationUser", "owner2@fpt.com", false, false, null, null, "owner2@fpt.com", "AQAAAAEAACcQAAAAEDfH9gUsFaU+UmC6DAjVWqCoWEDl1VPXMyoomkE+G4EPy9zhLRw9TlcHQUlNF6T9HQ==", null, false, "a431ac4a-f376-4c60-a48a-8dc5c7f72577", false, "owner2@fpt.com", "Phú Thọ", "2002/08/10", "Truc My", "https://gamek.mediacdn.vn/133514250583805952/2020/7/11/narutossagemode-15944657133061535033027.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -374,9 +379,9 @@ namespace NotUseAuto.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartItem_WaitCartId",
+                name: "IX_CartItem_OrderId",
                 table: "CartItem",
-                column: "WaitCartId");
+                column: "OrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CartItem_productId",
@@ -421,7 +426,7 @@ namespace NotUseAuto.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "WaitCart");
+                name: "Order");
 
             migrationBuilder.DropTable(
                 name: "Product");
