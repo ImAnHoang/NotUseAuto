@@ -193,6 +193,8 @@ namespace NotUseAuto.Controllers
                 {
                     UserId = currentUserId,
                     ProductId = cart[i].product.Id,
+                    ProductName = cart[i].product.Name,
+                    image = cart[i].product.Image,
                     Price = (int) cart[i].product.Price,
                     Quantity = cart[i].Quantity,
                     TotalPrice = total,
@@ -207,6 +209,8 @@ namespace NotUseAuto.Controllers
         }
         public  IActionResult ViewOrder()
         {
+            var categories = context.Category.ToList();
+            ViewBag.Categories = categories;
             var claimIdentity = (ClaimsIdentity)User.Identity;
             var claims = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
             string currentUserId = claims.Value;
