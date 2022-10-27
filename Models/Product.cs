@@ -1,10 +1,12 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NotUseAuto.Models
 {
     public class Product
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         // properties Id, Name, Price,Quantity,  Description
         public int Id { get; set; }
 
@@ -26,7 +28,6 @@ namespace NotUseAuto.Models
         public string Image { get; set; }
         [Required]
         public int CategoryId { get; set; }
-
 
         public Category Category { get; set; }
 

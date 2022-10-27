@@ -175,7 +175,7 @@ namespace NotUseAuto.Controllers
         public IActionResult Checkout()
         {
 
-            WaitCart wait = new WaitCart()
+            /*WaitCart wait = new WaitCart()
             {
                 cartItems = GetCartItems()
             };
@@ -185,8 +185,10 @@ namespace NotUseAuto.Controllers
                 context.Entry(wait).State = EntityState.Added;
                 context.SaveChanges();
             }
-
+            */
+            ClearCart();
             return RedirectToAction(nameof(Index));
+            
         }
     }
 }

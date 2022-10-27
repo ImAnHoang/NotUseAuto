@@ -46,13 +46,10 @@
               <td>@(total.ToString("n0"))</td>
               <td></td>
             <td>
-                <form asp-controller="Admin" asp-action="ConfirmOrder">
-                    @foreach (var cartitem in Model)
-                    {
-                        
-                    }
-            <a button type="submit" asp-controller="Customer" asp-action="Checkout">Make order</a>
-                </form>
+
+                    
+            <a button type="submit" asp-controller="Customer" asp-action="Checkout" class="Checkout">Make order</a>
+               
             
           </tr>
       </table>
@@ -63,3 +60,12 @@ else
 {
       <p class="alert alert-danger">Giỏ hàng trống</p>
 }
+<script type="text/javascript">
+    var elems = document.getElementsByClassName('Checkout');
+    var confirmIt = function (e) {
+        if (!confirm('Make order success')) e.preventDefault();
+    };
+    for (var i = 0, l = elems.length; i < l; i++) {
+        elems[i].addEventListener('click', confirmIt, false);
+    }
+</script>
